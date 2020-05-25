@@ -2655,17 +2655,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       activeBtn: 1
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['WebData'])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['setWebData'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getWebData'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['WebData', 'shopItem'])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['setWebData'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getWebData', 'getShopItem'])),
   created: function created() {
+    this.getShopItem();
     this.getWebData();
   },
-  mounted: function mounted() {// document.onreadystatechange = () => { 
-    //   if (document.readyState == "complete") { 
-    //       // run code here
-    //       document.title = this.WebData.title
-    //   } 
-    // }
+  mounted: function mounted() {// 
   }
 });
 
@@ -3116,6 +3112,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3245,17 +3248,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3263,51 +3256,8 @@ __webpack_require__.r(__webpack_exports__);
       select: 'Popularity',
       options: ['Default', 'Popularity', 'Relevance', 'Price: Low to High', 'Price: High to Low'],
       page: 1,
-      breadcrums: [{
-        text: 'Home',
-        disabled: false,
-        href: 'breadcrumbs_home'
-      }, {
-        text: 'Clothing',
-        disabled: false,
-        href: 'breadcrumbs_clothing'
-      }, {
-        text: 'T-Shirts',
-        disabled: true,
-        href: 'breadcrumbs_shirts'
-      }],
       min: 0,
       max: 10000,
-      items: [{
-        id: 2,
-        name: 'Shoes',
-        children: [{
-          id: 2,
-          name: 'Casuals'
-        }, {
-          id: 3,
-          name: 'Formals'
-        }, {
-          id: 4,
-          name: 'Sneakers'
-        }]
-      }, {
-        id: 1,
-        name: 'Clothing',
-        children: [{
-          id: 5,
-          name: 'Shirts'
-        }, {
-          id: 6,
-          name: 'Tops'
-        }, {
-          id: 7,
-          name: 'Tunics'
-        }, {
-          id: 8,
-          name: 'Bodysuit'
-        }]
-      }],
       products: [{
         id: 1,
         name: 'BLACK TEE',
@@ -3382,6 +3332,11 @@ __webpack_require__.r(__webpack_exports__);
         src: __webpack_require__(/*! ../assets/img/shop/12.jpg */ "./resources/js/shipit template/assets/img/shop/12.jpg")
       }]
     };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['shopItem', 'productSearch'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProductSearch'])),
+  created: function created() {
+    this.getProductSearch();
   }
 });
 
@@ -7080,7 +7035,7 @@ var render = function() {
                       staticClass: "mx-auto",
                       attrs: { "max-width": "344", outlined: "" }
                     },
-                    _vm._l(_vm.WebData.shopItem, function(item, index) {
+                    _vm._l(_vm.shopItem, function(item, index) {
                       return _c(
                         "v-list-item",
                         { key: index, attrs: { href: "/shop" } },
@@ -8241,7 +8196,7 @@ var render = function() {
                   [
                     _c("v-treeview", {
                       attrs: {
-                        items: _vm.items,
+                        items: _vm.shopItem,
                         open: [1],
                         active: [5],
                         "selected-color": "#fff",
@@ -8426,56 +8381,15 @@ var render = function() {
             "div",
             { staticClass: "col-md-9 col-sm-9 col-xs-12" },
             [
-              _c("v-breadcrumbs", {
-                staticClass: "pb-0",
-                attrs: { items: _vm.breadcrums }
-              }),
-              _vm._v(" "),
-              _c(
-                "v-row",
-                { attrs: { dense: "" } },
-                [
-                  _c(
-                    "v-col",
-                    {
-                      staticClass: "pl-6 pt-6",
-                      attrs: { cols: "12", sm: "8" }
-                    },
-                    [_c("small", [_vm._v("Showing 1-12 of 200 products")])]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { attrs: { cols: "12", sm: "4" } },
-                    [
-                      _c("v-select", {
-                        staticClass: "pa-0",
-                        staticStyle: { "margin-bottom": "-20px" },
-                        attrs: { items: _vm.options, outlined: "", dense: "" },
-                        model: {
-                          value: _vm.select,
-                          callback: function($$v) {
-                            _vm.select = $$v
-                          },
-                          expression: "select"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
               _c("v-divider"),
               _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "row text-center" },
-                _vm._l(_vm.products, function(pro) {
+                _vm._l(_vm.productSearch, function(pro) {
                   return _c(
                     "div",
-                    { key: pro.id, staticClass: "col-md-3 col-sm-6 col-xs-12" },
+                    { staticClass: "col-md-3 col-sm-6 col-xs-12" },
                     [
                       _c("v-hover", {
                         scopedSlots: _vm._u(
@@ -67709,7 +67623,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
 var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
     WebData: {},
-    productData: {}
+    productData: {},
+    shopItem: {},
+    productSearch: {}
   },
   mutations: {
     setWebData: function setWebData(state, objectWebData) {
@@ -67717,6 +67633,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     },
     setProductData: function setProductData(state, objectProductData) {
       state.productData = objectProductData;
+    },
+    setProductSearch: function setProductSearch(state, objectProductSearch) {
+      state.productSearch = objectProductSearch;
+    },
+    setShopItem: function setShopItem(state, objectShopData) {
+      state.shopItem = objectShopData;
     }
   },
   actions: {
@@ -67741,7 +67663,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         }, _callee);
       }))();
     },
-    getProductData: function getProductData(_ref2) {
+    getShopItem: function getShopItem(_ref2) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var commit;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -67750,8 +67672,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
               case 0:
                 commit = _ref2.commit;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductData").then(function (response) {
-                  commit('setProductData', response.data);
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getShopItem").then(function (response) {
+                  commit('setShopItem', response.data);
                 });
 
               case 3:
@@ -67760,6 +67682,48 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
             }
           }
         }, _callee2);
+      }))();
+    },
+    getProductData: function getProductData(_ref3) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                commit = _ref3.commit;
+                _context3.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductData").then(function (response) {
+                  commit('setProductData', response.data);
+                });
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    getProductSearch: function getProductSearch(_ref4) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                commit = _ref4.commit;
+                _context4.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductSearch").then(function (response) {
+                  commit('setProductSearch', response.data);
+                });
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
       }))();
     }
   }
@@ -67891,7 +67855,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\desarrollos personales\proyect-food\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
+module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
 
 
 /***/ })

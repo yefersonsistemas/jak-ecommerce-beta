@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/getWebData', 'webconf_controller@index');
 
+Route::post('/getShopItem', 'webconf_controller@shopItem');
+
 Route::post('/getProductData', 'product_controller@index');
+
+Route::post('/getProductSearch', 'product_controller@productSearch');
 
 Route::get('/panel', 'view_controller@panel');
 

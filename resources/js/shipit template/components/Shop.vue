@@ -9,7 +9,7 @@
             <v-card-title>Filters</v-card-title>
             <v-divider></v-divider>
             <template>
-              <v-treeview :items="items" :open="[1]" :active="[5]" :selected-color="'#fff'" activatable open-on-click dense></v-treeview>
+              <v-treeview :items="shopItem" :open="[1]" :active="[5]" :selected-color="'#fff'" activatable open-on-click dense></v-treeview>
             </template>
             <v-divider></v-divider>
             <v-card-title>Price</v-card-title>
@@ -70,21 +70,10 @@
           class="col-md-9 col-sm-9 col-xs-12"
         >
 
-          <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
-
-          <v-row dense>
-            <v-col cols="12" sm="8" class="pl-6 pt-6">
-              <small>Showing 1-12 of 200 products</small>
-            </v-col>
-            <v-col cols="12" sm="4">
-              <v-select class="pa-0" v-model="select" :items="options" style="margin-bottom: -20px;" outlined dense></v-select>
-            </v-col>
-          </v-row>
-
           <v-divider></v-divider>
 
           <div class="row text-center">
-            <div class="col-md-3 col-sm-6 col-xs-12" :key="pro.id" v-for="pro in products">
+            <div class="col-md-3 col-sm-6 col-xs-12"  v-for="pro in productSearch">
               <v-hover v-slot:default="{ hover }">
                 <v-card
                   class="mx-auto"
@@ -139,6 +128,7 @@
   }
 </style>
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
     export default {
         data: () => ({
             range: [0, 10000],
@@ -151,46 +141,8 @@
                 'Price: High to Low',
             ],
             page:1,
-            breadcrums: [
-                {
-                    text: 'Home',
-                    disabled: false,
-                    href: 'breadcrumbs_home',
-                },
-                {
-                    text: 'Clothing',
-                    disabled: false,
-                    href: 'breadcrumbs_clothing',
-                },
-                {
-                    text: 'T-Shirts',
-                    disabled: true,
-                    href: 'breadcrumbs_shirts',
-                },
-            ],
             min:0,
             max:10000,
-            items: [
-                {
-                    id: 2,
-                    name: 'Shoes',
-                    children: [
-                        { id: 2, name: 'Casuals' },
-                        { id: 3, name: 'Formals' },
-                        { id: 4, name: 'Sneakers' },
-                    ],
-                },
-                {
-                    id: 1,
-                    name: 'Clothing',
-                    children: [
-                        { id: 5, name: 'Shirts' },
-                        { id: 6, name: 'Tops' },
-                        { id: 7, name: 'Tunics' },
-                        { id: 8, name: 'Bodysuit' },
-                    ],
-                }
-            ],
             products:[
                 {
                     id:1,
@@ -277,5 +229,15 @@
                 }
             ]
         }),
+        computed:{
+          ...mapState(['shopItem','productSearch'])
+        },
+        methods:{
+          ...mapActions(['getProductSearch'])
+        },
+        created(){
+          this.getProductSearch()
+        }
     }
+    
 </script>

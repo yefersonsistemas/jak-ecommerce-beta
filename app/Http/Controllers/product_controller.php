@@ -59,4 +59,24 @@ class product_controller extends Controller
             'materials'        => $materials,
         ]);
     }
+
+    function productSearch(){
+
+            $name     = 'BLACK TEE';
+            $type     = 'Jackets';
+            $price    = '18.00';
+            $imageSrc = 'images/1.jpg';
+
+            $productSearch = '
+                {
+                    "name"   => '.$name.',
+                    "type"   => '.$type.',
+                    "price"  => '.$price.' ,
+                    "images" => '.$imageSrc.'
+                }
+            ';
+
+        return response()->json(json_decode($productSearch));
+        
+    }
 }

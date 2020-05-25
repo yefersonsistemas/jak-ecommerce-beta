@@ -68,7 +68,7 @@
           >
 
             <v-list-item
-              v-for="(item, index) in WebData.shopItem"
+              v-for="(item, index) in shopItem"
               :key="index"
               href="/shop"
             >
@@ -145,22 +145,18 @@ import { mapState, mapMutations, mapActions } from 'vuex'
             }
         },
         computed:{
-          ...mapState(['WebData'])
+          ...mapState(['WebData','shopItem'])
         },
         methods:{
           ...mapMutations(['setWebData']),
-          ...mapActions(['getWebData'])
+          ...mapActions(['getWebData','getShopItem'])
         },
         created(){
+          this.getShopItem()
           this.getWebData()
         },
         mounted(){
-          // document.onreadystatechange = () => { 
-          //   if (document.readyState == "complete") { 
-          //       // run code here
-          //       document.title = this.WebData.title
-          //   } 
-          // }
+          // 
         }
     }
 </script>

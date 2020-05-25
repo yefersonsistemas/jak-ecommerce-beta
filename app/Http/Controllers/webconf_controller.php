@@ -11,36 +11,92 @@ class webconf_controller extends Controller
     {
         $name = 'jak solutions';
         $shortName = "jak";
+        return response()->json([
+            'name' => $name,
+            'shortName' => $shortName
+        ]);
+    }
+
+    function shopItem(){
         $shopItem =  '[
             {
                 "name" : "T-Shirts",
-                "code" : "shop-001"
+                "code" : "shop-001",
+                "fatherCode": null,
+                "children" : [
+                    {
+                        "name" : "T-Shirts",
+                        "code" : "shop-007",
+                        "fatherCode": "shop-001",
+                        "children" : []
+                    },
+                    {
+                        "name" : "Jackets",
+                        "code" : "shop-008",
+                        "fatherCode": "shop-001",
+                        "children" : []
+                    }
+                ]
             },
             {
                 "name" : "Jackets",
-                "code" : "shop-002"
+                "code" : "shop-002",
+                "fatherCode": null,
+                "children" : [
+                    {
+                        "name" : "Shirts",
+                        "code" : "shop-009",
+                        "fatherCode": "shop-002",
+                        "children" : []
+                    },
+                    {
+                        "name" : "Jeans",
+                        "code" : "shop-010",
+                        "fatherCode": "shop-002",
+                        "children" : []
+                    }
+                ]
             },
             {
                 "name" : "Shirts",
-                "code" : "shop-003"
+                "code" : "shop-003",
+                "fatherCode": null,
+                "children" : [
+                    {
+                        "name" : "Shoes",
+                        "code" : "shop-011",
+                        "fatherCode": "shop-003",
+                        "children" : []
+                    }
+                ]
             },
             {
                 "name" : "Jeans",
-                "code" : "shop-004"
+                "code" : "shop-004",
+                "fatherCode": null,
+                "children" : [
+                    {
+                        "name" : "Nails",
+                        "code" : "shop-012",
+                        "fatherCode": "shop-004",
+                        "children" : []
+                    }
+                ]
             },
             {
                 "name" : "Shoes",
-                "code" : "shop-005"
+                "code" : "shop-005",
+                "fatherCode": null,
+                "children" : []
             },
             {
                 "name" : "Nails",
-                "code" : "shop-005"
+                "code" : "shop-005",
+                "fatherCode": null,
+                "children" : []
             }
         ]';
-        return response()->json([
-            'name' => $name,
-            'shortName' => $shortName,
-            'shopItem' => json_decode($shopItem)
-        ]);
+        return response()->json(json_decode($shopItem)
+        );
     }
 }
