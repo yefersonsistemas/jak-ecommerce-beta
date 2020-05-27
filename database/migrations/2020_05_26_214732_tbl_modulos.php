@@ -15,7 +15,7 @@ class TblModulos extends Migration
     {
         Schema::create('tbl_modulos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('fatherCode');
             $table->string('name');
             $table->string('icon');

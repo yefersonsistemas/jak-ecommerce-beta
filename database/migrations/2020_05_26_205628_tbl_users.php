@@ -15,7 +15,7 @@ class TblUsers extends Migration
     {
         Schema::create('tbl_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('roleCode');
             $table->string('numPhone');
             $table->string('email')->unique();
@@ -28,9 +28,10 @@ class TblUsers extends Migration
             $table->string('statusCode');
             $table->string('direction');
             $table->boolean('delete');
-            $table->string('password');
-            $table->timestamps('create');
-            $table->timestamps('modified');
+
+            $table->foreign('statusCode')->references('code')->on('tbl_status');
+            $table->foreign('roleCode')->references('code')->on('tbl_role');
+
         });
     }
 

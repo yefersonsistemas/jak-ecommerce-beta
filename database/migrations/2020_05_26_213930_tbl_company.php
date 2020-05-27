@@ -15,7 +15,7 @@ class TblCompany extends Migration
     {
         Schema::create('tbl_company', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('companyName');
             $table->string('companyDirection');
             $table->string('numPhone');

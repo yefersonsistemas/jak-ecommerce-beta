@@ -15,7 +15,7 @@ class TblStatus extends Migration
     {
         Schema::create('tbl_status', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('name');
             $table->boolean('delete');
         });

@@ -15,8 +15,9 @@ class TblRole extends Migration
     {
         Schema::create('tbl_role', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('name');
+            //$table->string('fatherCode');
             $table->boolean('delete');
             $table->boolean('active');
         });

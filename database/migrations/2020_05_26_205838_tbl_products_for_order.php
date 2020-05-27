@@ -20,6 +20,9 @@ class TblProductsForOrder extends Migration
             $table->string('quantity');
             $table->float('tax');
             $table->float('cost');
+
+            $table->foreign('productCode')->references('code')->on('tbl_productos');
+            $table->foreign('orderCode')->references('code')->on('tbl_order');
         });
     }
 

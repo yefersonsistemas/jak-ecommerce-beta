@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblRedSocialCompany extends Migration
+class TblImage extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class TblRedSocialCompany extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_redSocialCompany', function (Blueprint $table) {
+        Schema::create('tbl_image', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
-            $table->string('icon');
-            $table->string('url');
-            $table->boolean('delete');
-        });
+            $table->string('code')->unique();
+            $table->string('imgSrc');
+            $table->string('productCode');
+
+            $table->foreign('productCode')->references('code')->on('tbl_productos');
+  
+    });
     }
 
     /**
@@ -29,6 +31,6 @@ class TblRedSocialCompany extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_redSocialCompany');
+        Schema::dropIfExists('tbl_image');
     }
 }

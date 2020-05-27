@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblOrder extends Migration
+class TblRedSocialCompany extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,12 @@ class TblOrder extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_order', function (Blueprint $table) {
+        Schema::create('tbl_redSocialCompany', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code')->unique();
-            $table->string('userCode');
-            $table->float('total');
-            $table->boolean('indicted');
-            $table->date('register');
-            $table->integer('discount');
-            $table->boolean('cancelated');
-            $table->float('tax');
-            $table->date('emission');
-
+            $table->string('icon');
+            $table->string('url');
+            $table->boolean('delete');
         });
     }
 
@@ -35,6 +29,6 @@ class TblOrder extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_order');
+        Schema::dropIfExists('tbl_redSocialCompany');
     }
 }

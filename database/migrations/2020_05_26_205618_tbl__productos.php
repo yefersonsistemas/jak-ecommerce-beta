@@ -23,6 +23,9 @@ class TblProductos extends Migration
                 $table->string('typeCode');
                 $table->float('actualPrice');
                 $table->integer('existenc');
+
+                $table->foreign('typeCode')->references('code')->on('tbl_poductsType');
+
         });
     }
 
