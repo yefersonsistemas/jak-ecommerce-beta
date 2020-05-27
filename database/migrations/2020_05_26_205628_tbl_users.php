@@ -27,7 +27,7 @@ class TblUsers extends Migration
             $table->string('secoundLastName');
             $table->string('statusCode');
             $table->string('direction');
-            $table->boolean('delete');
+            $table->boolean('delete')->nullable();
 
             $table->foreign('statusCode')->references('code')->on('tbl_status');
             $table->foreign('roleCode')->references('code')->on('tbl_role');

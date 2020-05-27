@@ -18,7 +18,7 @@ class TblOrder extends Migration
             $table->string('code')->unique();
             $table->string('userCode');
             $table->float('total');
-            $table->boolean('indicted');
+            $table->boolean('indicted')->nullable();
             $table->date('register');
             $table->integer('discount');
             $table->boolean('cancelated');

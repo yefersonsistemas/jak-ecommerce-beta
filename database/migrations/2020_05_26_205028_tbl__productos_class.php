@@ -16,7 +16,6 @@ class TblProductosClass extends Migration
         Schema::create('tbl_productosClass', function (Blueprint $table) {
             $table->bigIncrements('id');
                 $table->string('code')->unique();
-                $table->string('categoryCode');
                 $table->string('name');
         });
     }

@@ -18,7 +18,7 @@ class TblRedSocialCompany extends Migration
             $table->string('code')->unique();
             $table->string('icon');
             $table->string('url');
-            $table->boolean('delete');
+            $table->boolean('delete')->nullable();
         });
     }
 

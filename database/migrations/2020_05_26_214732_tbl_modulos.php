@@ -20,8 +20,8 @@ class TblModulos extends Migration
             $table->string('name');
             $table->string('icon');
             $table->string('direcction');
-            $table->boolean('fatherType');
-            $table->boolean('delete');
+            $table->boolean('fatherType')->nullable();
+            $table->boolean('delete')->nullable();
         });
     }
 

@@ -17,7 +17,7 @@ class TblStatus extends Migration
             $table->bigIncrements('id');
             $table->string('code')->unique();
             $table->string('name');
-            $table->boolean('delete');
+            $table->boolean('delete')->nullable();
         });
     }
 
