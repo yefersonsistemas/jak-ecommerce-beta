@@ -67,14 +67,32 @@ class product_controller extends Controller
             $price    = '18.00';
             $imageSrc = 'images/1.jpg';
 
-            $productSearch = '
+            $productSearch = '[
                 {
-                    "name"   => '.$name.',
-                    "type"   => '.$type.',
-                    "price"  => '.$price.' ,
-                    "images" => '.$imageSrc.'
+                    "name"   : "'.$name.'",
+                    "type"   : "'.$type.'",
+                    "price"  : "'.$price.'" ,
+                    "images" : "'.$imageSrc.'"
+                },
+                {
+                    "name"   : "'.$name.'",
+                    "type"   : "'.$type.'",
+                    "price"  : "'.$price.'" ,
+                    "images" : "'.$imageSrc.'"
+                },
+                {
+                    "name"   : "'.$name.'",
+                    "type"   : "'.$type.'",
+                    "price"  : "'.$price.'" ,
+                    "images" : "'.$imageSrc.'"
+                },
+                {
+                    "name"   : "'.$name.'",
+                    "type"   : "'.$type.'",
+                    "price"  : "'.$price.'" ,
+                    "images" : "'.$imageSrc.'"
                 }
-            ';
+            ]';
 
         return response()->json(json_decode($productSearch));
         
