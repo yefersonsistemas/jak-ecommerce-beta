@@ -2370,124 +2370,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       items: [{
-        title: 'Click Me'
+        title: "Click Me"
       }, {
-        title: 'Click Me'
+        title: "Click Me"
       }, {
-        title: 'Click Me'
+        title: "Click Me"
       }, {
-        title: 'Click Me 2'
+        title: "Click Me 2"
       }],
       activeBtn: 1,
-      colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth']
+      colors: ["indigo", "warning", "pink darken-2", "red lighten-1", "deep-purple accent-4"],
+      slides: ["First", "Second", "Third", "Fourth", "Fifth"]
     };
   }
 });
@@ -2582,72 +2479,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2655,13 +2486,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       activeBtn: 1
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['WebData', 'shopItem'])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['setWebData'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getWebData', 'getShopItem'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData", "shopItem"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setWebData"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "getShopItem"])),
   created: function created() {
     this.getShopItem();
     this.getWebData();
   },
-  mounted: function mounted() {// 
+  mounted: function mounted() {//
   }
 });
 
@@ -3418,7 +3249,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.v-card--reveal {\n  align-items: center;\n  bottom: 0;\n  justify-content: center;\n  opacity: .5;\n  position: absolute;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.v-card--reveal {\r\n  align-items: center;\r\n  bottom: 0;\r\n  justify-content: center;\r\n  opacity: 0.5;\r\n  position: absolute;\r\n  width: 100%;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4277,6 +4108,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { attrs: { id: "scrolling-techniques-3" } },
     [
       _c(
         "v-carousel",
@@ -4301,6 +4133,7 @@ var render = function() {
                     },
                     [_c("strong", [_vm._v("Upto 60% + Extra 10%")])]
                   ),
+                  _vm._v(" "),
                   _c("br")
                 ]
               )
@@ -4327,6 +4160,7 @@ var render = function() {
                     },
                     [_c("strong", [_vm._v("Upto 60% + Extra 10%")])]
                   ),
+                  _vm._v(" "),
                   _c("br")
                 ]
               )
@@ -4353,6 +4187,7 @@ var render = function() {
                     },
                     [_c("strong", [_vm._v("Upto 60% + Extra 10%")])]
                   ),
+                  _vm._v(" "),
                   _c("br")
                 ]
               )
@@ -4379,6 +4214,7 @@ var render = function() {
                     },
                     [_c("strong", [_vm._v("Upto 60% + Extra 10%")])]
                   ),
+                  _vm._v(" "),
                   _c("br")
                 ]
               )
@@ -4419,7 +4255,7 @@ var render = function() {
                         _c(
                           "v-btn",
                           {
-                            staticClass: "white--text ",
+                            staticClass: "white--text",
                             attrs: { href: "/shop", outlined: "" }
                           },
                           [_vm._v("SHOP NOW")]
@@ -4518,7 +4354,7 @@ var render = function() {
                             attrs: { href: "/shop", text: "" }
                           },
                           [
-                            _vm._v("SHOP NOW "),
+                            _vm._v("\n              SHOP NOW\n              "),
                             _c(
                               "v-icon",
                               { staticClass: "white--text caption" },
@@ -4573,7 +4409,7 @@ var render = function() {
                             attrs: { href: "/shop", text: "" }
                           },
                           [
-                            _vm._v("SHOP NOW "),
+                            _vm._v("\n              SHOP NOW\n              "),
                             _c(
                               "v-icon",
                               { staticClass: "white--text caption" },
@@ -4628,7 +4464,7 @@ var render = function() {
                             attrs: { href: "/shop", text: "" }
                           },
                           [
-                            _vm._v("SHOP NOW "),
+                            _vm._v("\n              SHOP NOW\n              "),
                             _c(
                               "v-icon",
                               { staticClass: "white--text caption" },
@@ -4665,7 +4501,7 @@ var render = function() {
                     "v-card-text",
                     { attrs: { tile: "", outlined: "" } },
                     [
-                      _c("v-card-title", { staticClass: "subheading " }, [
+                      _c("v-card-title", { staticClass: "subheading" }, [
                         _vm._v("Deals of the Day")
                       ]),
                       _vm._v(" "),
@@ -4705,7 +4541,7 @@ var render = function() {
                                             },
                                             [
                                               _c("v-card-title", [
-                                                _vm._v("Bags & Purses ")
+                                                _vm._v("Bags & Purses")
                                               ])
                                             ],
                                             1
@@ -4742,11 +4578,7 @@ var render = function() {
                                                     color: "info"
                                                   }
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      Explore\n                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Explore")]
                                               )
                                             ],
                                             1
@@ -4796,7 +4628,7 @@ var render = function() {
                                             },
                                             [
                                               _c("v-card-title", [
-                                                _vm._v("T-Shirt ")
+                                                _vm._v("T-Shirt")
                                               ])
                                             ],
                                             1
@@ -4831,11 +4663,7 @@ var render = function() {
                                                     color: "info"
                                                   }
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      Explore\n                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Explore")]
                                               )
                                             ],
                                             1
@@ -4885,7 +4713,7 @@ var render = function() {
                                             },
                                             [
                                               _c("v-card-title", [
-                                                _vm._v("Jeans ")
+                                                _vm._v("Jeans")
                                               ])
                                             ],
                                             1
@@ -4922,11 +4750,7 @@ var render = function() {
                                                     color: "info"
                                                   }
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      Explore\n                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Explore")]
                                               )
                                             ],
                                             1
@@ -4976,7 +4800,7 @@ var render = function() {
                                             },
                                             [
                                               _c("v-card-title", [
-                                                _vm._v("Shoes ")
+                                                _vm._v("Shoes")
                                               ])
                                             ],
                                             1
@@ -5013,11 +4837,7 @@ var render = function() {
                                                     color: "info"
                                                   }
                                                 },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      Explore\n                    "
-                                                  )
-                                                ]
+                                                [_vm._v("Explore")]
                                               )
                                             ],
                                             1
@@ -5047,136 +4867,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "v-card",
-        { staticClass: "accent" },
-        [
-          _c(
-            "v-container",
-            [
-              _c(
-                "v-row",
-                { attrs: { "no-gutters": "" } },
-                [
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "col-12 col-sm-3 pr-4",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-truck")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("FREE SHIPPING & RETURN")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("Free Shipping over $300")
-                            ])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "col-12 col-sm-3 pr-4",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-cash-usd")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("MONEY BACK GUARANTEE")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("30 Days Money Back Guarantee")
-                            ])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "col-12 col-sm-3 pr-4",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-headset")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("020-800-456-747")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("24/7 Available Support")
-                            ])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
+      _c("v-card", { staticClass: "accent" })
     ],
     1
   )
@@ -5205,244 +4896,153 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { attrs: { id: "inspire" } },
+    { staticStyle: { height: "0px" }, attrs: { id: "inspire" } },
     [
       _c(
-        "v-app-bar",
-        {
-          attrs: {
-            "clipped-left": _vm.$vuetify.breakpoint.lgAndUp,
-            app: "",
-            color: "primary",
-            dark: ""
-          }
-        },
+        "v-card",
+        { staticClass: "overflow-hidden" },
         [
-          _c("v-toolbar-title", { staticStyle: { width: "350px" } }, [
-            _c(
-              "a",
-              {
-                staticClass: "white--text",
-                staticStyle: { "text-decoration": "none" },
-                attrs: { href: "/" }
+          _c(
+            "v-app-bar",
+            {
+              attrs: {
+                "clipped-left": _vm.$vuetify.breakpoint.lgAndUp,
+                color: "teal darken-1",
+                dark: "",
+                "shrink-on-scroll": "",
+                prominent: "",
+                src: "https://picsum.photos/1920/1080?random",
+                "fade-img-on-scroll": "",
+                "scroll-target": "#scrolling-techniques-3"
               },
-              [
-                _c("v-icon", [_vm._v("mdi-truck")]),
-                _vm._v(" " + _vm._s(_vm.WebData.shortName))
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("v-text-field", {
-            staticClass: "hidden-sm-and-down pl-10 ml-4",
-            attrs: {
-              flat: "",
-              "solo-inverted": "",
-              "hide-details": "",
-              "prepend-inner-icon": "mdi-magnify",
-              label: "Search"
-            }
-          }),
-          _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-account-circle")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            _vm._g({ attrs: { icon: "" } }, _vm.on),
-            [
-              _c(
-                "v-badge",
+              scopedSlots: _vm._u([
                 {
-                  attrs: {
-                    content: "2",
-                    value: "2",
-                    color: "green",
-                    overlap: ""
-                  }
-                },
-                [_c("v-icon", [_vm._v("mdi-bell")])],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            _vm._g({ attrs: { href: "/cart", icon: "" } }, _vm.on),
-            [
-              _c(
-                "v-badge",
-                {
-                  attrs: {
-                    content: "2",
-                    value: "2",
-                    color: "green",
-                    overlap: ""
-                  }
-                },
-                [_c("v-icon", [_vm._v("mdi-cart")])],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-content",
-        [
-          _c(
-            "v-bottom-navigation",
-            {
-              attrs: { value: _vm.activeBtn, color: "primary", horizontal: "" }
-            },
-            [
-              _c("a", { staticClass: "v-btn", attrs: { href: "/" } }, [
-                _c("span", [_vm._v("Home")])
-              ]),
-              _vm._v(" "),
-              _c(
-                "v-menu",
-                {
-                  attrs: { "open-on-hover": "", "offset-y": "" },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "activator",
-                      fn: function(ref) {
-                        var on = ref.on
-                        return [
-                          _c("v-btn", _vm._g({}, on), [
-                            _c("span", [_vm._v("Shop")])
-                          ])
-                        ]
-                      }
-                    }
-                  ])
-                },
-                [
-                  _vm._v(" "),
-                  _c(
-                    "v-card",
-                    {
-                      staticClass: "mx-auto",
-                      attrs: { "max-width": "344", outlined: "" }
-                    },
-                    _vm._l(_vm.shopItem, function(item, index) {
-                      return _c(
-                        "v-list-item",
-                        { key: index, attrs: { href: "/shop" } },
-                        [_c("v-list-item-title", [_vm._v(_vm._s(item.name))])],
-                        1
+                  key: "img",
+                  fn: function(ref) {
+                    var props = ref.props
+                    return [
+                      _c(
+                        "v-img",
+                        _vm._b(
+                          {
+                            attrs: {
+                              gradient:
+                                "to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+                            }
+                          },
+                          "v-img",
+                          props,
+                          false
+                        )
                       )
-                    }),
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("a", { staticClass: "v-btn", attrs: { href: "/product" } }, [
-                _c("span", [_vm._v("Product")])
-              ]),
-              _vm._v(" "),
-              _c("v-btn", { attrs: { href: "/blog" } }, [
-                _c("span", [_vm._v("Blog")])
+                    ]
+                  }
+                }
               ])
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("router-view"),
-      _vm._v(" "),
-      _c(
-        "v-footer",
-        { attrs: { padless: true } },
-        [
-          _c(
-            "v-card",
-            {
-              staticClass: "secondary white--text text-center",
-              attrs: { flat: "", tile: "", width: "100%" }
             },
             [
-              _c(
-                "v-card-text",
-                [
-                  _c(
-                    "v-btn",
-                    { staticClass: "mx-4 white--text", attrs: { icon: "" } },
-                    [
-                      _c("v-icon", { attrs: { size: "24px" } }, [
-                        _vm._v("mdi-home")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { staticClass: "mx-4 white--text", attrs: { icon: "" } },
-                    [
-                      _c("v-icon", { attrs: { size: "24px" } }, [
-                        _vm._v("mdi-email")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { staticClass: "mx-4 white--text", attrs: { icon: "" } },
-                    [
-                      _c("v-icon", { attrs: { size: "24px" } }, [
-                        _vm._v("mdi-calendar")
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-btn",
-                    { staticClass: "mx-4 white--text", attrs: { icon: "" } },
-                    [
-                      _c("v-icon", { attrs: { size: "24px" } }, [
-                        _vm._v("mdi-delete")
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
               _vm._v(" "),
-              _c("v-card-text", { staticClass: "white--text pt-0" }, [
-                _vm._v(
-                  "\n          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n        "
+              _c("v-toolbar-title", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "white--text",
+                    staticStyle: { "text-decoration": "none" },
+                    attrs: { href: "/" }
+                  },
+                  [
+                    _c("v-icon", [_vm._v("mdi-truck")]),
+                    _vm._v(
+                      "\n           " +
+                        _vm._s(_vm.WebData.shortName) +
+                        "\n        "
+                    )
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
-              _c("v-divider"),
+              _c("v-spacer"),
               _vm._v(" "),
-              _c("v-card-text", { staticClass: "white--text" }, [
-                _vm._v(
-                  "\n          " + _vm._s(new Date().getFullYear()) + " — "
-                ),
-                _c("strong", [_vm._v("ShipIT")])
-              ])
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+                  attrs: { href: "/", icon: "" }
+                },
+                [_c("v-icon", [_vm._v("mdi-home")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+                  attrs: { href: "/shop", icon: "" }
+                },
+                [_c("v-icon", [_vm._v("mdi-magnify")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+                  attrs: { href: "/", icon: "" }
+                },
+                [_c("v-icon", [_vm._v("mdi-information-outline")])],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-sheet",
+            {
+              staticClass: "overflow-y-auto",
+              staticStyle: { "padding-right": "20px" },
+              attrs: { id: "scrolling-techniques-3", "max-height": "600" }
+            },
+            [_c("router-view")],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-footer",
+            { attrs: { padless: true } },
+            [
+              _c(
+                "v-card",
+                {
+                  staticClass: "secondary white--text text-center",
+                  attrs: { flat: "", tile: "", width: "100%" }
+                },
+                [
+                  _c("v-card-text", { staticClass: "white--text" }, [
+                    _vm._v("asdasd")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-card-text", { staticClass: "white--text pt-0" }, [
+                    _vm._v(" ")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-divider"),
+                  _vm._v(" "),
+                  _c("v-card-text", { staticClass: "white--text" }, [
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(new Date().getFullYear()) +
+                        " —\n          "
+                    ),
+                    _c("strong", [_vm._v(_vm._s(_vm.WebData.name))])
+                  ])
+                ],
+                1
+              )
             ],
             1
           )
