@@ -61,36 +61,24 @@ class product_controller extends Controller
     }
 
     function productSearch(){
-
-            $name     = 'BLACK TEE';
-            $type     = 'Jackets';
-            $price    = '18.00';
-            $imageSrc = 'images/1.jpg';
-
             $productSearch = '[
                 {
-                    "name"   : "'.$name.'",
-                    "type"   : "'.$type.'",
-                    "price"  : "'.$price.'" ,
-                    "images" : "'.$imageSrc.'"
+                    "name"   : "BLACK TEE",
+                    "type"   : "Jackets",
+                    "price"  : "18.00" ,
+                    "images" : "https://picsum.photos/1920/1080?random"
                 },
                 {
-                    "name"   : "'.$name.'",
-                    "type"   : "'.$type.'",
-                    "price"  : "'.$price.'" ,
-                    "images" : "'.$imageSrc.'"
+                    "name"   : "BLACK TEE",
+                    "type"   : "Jackets",
+                    "price"  : "18.00" ,
+                    "images" : "https://picsum.photos/1920/1080?random"
                 },
                 {
-                    "name"   : "'.$name.'",
-                    "type"   : "'.$type.'",
-                    "price"  : "'.$price.'" ,
-                    "images" : "'.$imageSrc.'"
-                },
-                {
-                    "name"   : "'.$name.'",
-                    "type"   : "'.$type.'",
-                    "price"  : "'.$price.'" ,
-                    "images" : "'.$imageSrc.'"
+                    "name"   : "BLACK TEE",
+                    "type"   : "Jackets",
+                    "price"  : "18.00" ,
+                    "images" : "https://picsum.photos/1920/1080?random"
                 }
             ]';
 
