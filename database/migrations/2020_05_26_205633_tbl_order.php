@@ -20,7 +20,6 @@ class TblOrder extends Migration
             $table->float('total');
             $table->boolean('indicted')->nullable();
             $table->date('register');
-            $table->integer('discount');
             $table->boolean('cancelated');
             $table->float('tax');
             $table->date('emission');

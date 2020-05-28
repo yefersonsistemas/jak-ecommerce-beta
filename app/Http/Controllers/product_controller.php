@@ -45,6 +45,7 @@ class product_controller extends Controller
                             ]';
         $puntation        = 0;
         $materials        = 'materiales';
+
         
         return response()->json([
             'name'             => $name,

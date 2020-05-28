@@ -20,6 +20,7 @@ class seedProduct extends Seeder
             'typeCode'          => 'PRTY-001',
             'actualPrice'       => '10000',
             'existenc'          => '10',
+            'materials'         => 'suela',
             
         ]);
         DB                      :: table('tbl_productos')->insert([
@@ -31,6 +32,7 @@ class seedProduct extends Seeder
             'typeCode'          => 'PRTY-002',
             'actualPrice'       => '100000',
             'existenc'          => '100',
+            'materials'         => 'suela',
         ]);
         DB                      :: table('tbl_productos')->insert([
             'code'              => 'PRD-003',
@@ -41,6 +43,7 @@ class seedProduct extends Seeder
             'typeCode'          => 'PRTY-001',
             'actualPrice'       => '10000',
             'existenc'          => '10',
+            'materials'         => 'suela',
         ]);
     }
 }

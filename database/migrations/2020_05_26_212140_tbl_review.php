@@ -17,12 +17,11 @@ class TblReview extends Migration
             $table->bigIncrements('id');
             $table->string('code')->unique();
             $table->string('productCode');
-            $table->string('userCode');
+            $table->string('userCode')->nullable();
             $table->string('comment');
             $table->integer('puntuation');
-
             $table->foreign('productCode')->references('code')->on('tbl_productos');
-            $table->foreign('userCode')->references('code')->on('tbl_users');
+            //$table->foreign('userCode')->references('code')->on('tbl_users');
 
         });
     }
