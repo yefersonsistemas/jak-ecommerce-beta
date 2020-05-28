@@ -1,162 +1,136 @@
 <template>
   <v-app id="inspire">
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-      color="primary"
-      dark
-    >
-<!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
-
-      <v-toolbar-title
-        style="width: 350px"
+    <v-card class="overflow-hidden">
+      <v-app-bar
+        :clipped-left="$vuetify.breakpoint.lgAndUp"
+        color="teal darken-1"
+        dark
+        shrink-on-scroll
+        prominent
+        src="https://picsum.photos/1920/1080?random"
+        fade-img-on-scroll
+        scroll-target="#scrolling-techniques-3"
+        app
       >
-        <a href="/" class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;{{ WebData.shortName }}</a>
-      </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        label="Search"
-        class="hidden-sm-and-down pl-10 ml-4"
-      />
-      <v-spacer />
-      <v-btn icon>
-        <v-icon>mdi-account-circle</v-icon>
-      </v-btn>
-      <v-btn v-on="on" icon>
-        <v-badge
-          content="2"
-          value="2"
-          color="green"
-          overlap
+        <template v-slot:img="{ props }">
+          <v-img v-bind="props" gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"></v-img>
+        </template>
+
+        <v-toolbar-title>
+          <a href="/" class="white--text" style="text-decoration: none">
+            <v-icon>mdi-truck</v-icon>
+            &nbsp;{{ WebData.shortName }}
+          </a>
+        </v-toolbar-title>
+        <v-spacer />
+
+        <a
+          href="/"
+          class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default"
+          icon
         >
-          <v-icon>mdi-bell</v-icon>
-        </v-badge>
-      </v-btn>
-      <v-btn v-on="on" href="/cart" icon>
-        <v-badge
-          content="2"
-          value="2"
-          color="green"
-          overlap
+          <v-icon>mdi-home</v-icon>
+        </a>
+        <a
+          href="/shop"
+          class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default"
+          icon
         >
+          <v-icon>mdi-magnify</v-icon>
+        </a>
+        <a
+          href="/"
+          class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default"
+          icon
+        >
+          <v-icon>mdi-information-outline</v-icon>
+        </a>
+        <v-btn icon @click.stop="drawer = !drawer">
           <v-icon>mdi-cart</v-icon>
-        </v-badge>
-      </v-btn>
-    </v-app-bar>
-    <v-content>
-      <v-bottom-navigation
-        :value="activeBtn"
-        color="primary"
-        horizontal
-      >
-        <a href="/" class="v-btn">
-          <span>Home</span>
-        </a>
-        <v-menu open-on-hover offset-y>
-          <template v-slot:activator="{ on }">
-            <v-btn v-on="on">
-              <span>Shop</span>
-            </v-btn>
-          </template>
-          <v-card
-            class="mx-auto"
-            max-width="344"
-            outlined
-          >
-
-            <v-list-item
-              v-for="(item, index) in shopItem"
-              :key="index"
-              href="/shop"
-            >
-              <v-list-item-title>{{ item.name }}</v-list-item-title>
-            </v-list-item>
-
-          </v-card>
-        </v-menu>
-        <a href="/product" class="v-btn">
-          <span>Product</span>
-        </a>
-        <v-btn href="/blog">
-          <span>Blog</span>
         </v-btn>
-      </v-bottom-navigation>
-    </v-content>
-      <router-view/>
-    <v-footer
-      :padless="true"
-    >
-      <v-card
-        flat
-        tile
-        width="100%"
-        class="secondary white--text text-center"
-      >
-        <v-card-text>
-          <v-btn
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">mdi-home</v-icon>
-          </v-btn>
-          <v-btn
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">mdi-email</v-icon>
-          </v-btn>
-          <v-btn
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">mdi-calendar</v-icon>
-          </v-btn>
-           <v-btn
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">mdi-delete</v-icon>
-          </v-btn>
-
-        </v-card-text>
-
-        <v-card-text class="white--text pt-0">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-        </v-card-text>
+      </v-app-bar>
+      <v-content>
+        <v-sheet id="scrolling-techniques-3" class="overflow-y-auto m-height">
+          <router-view />
+          <v-card flat tile width="100%" class="secondary white--text text-center">
+            <v-card-text class="white--text">
+              <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
+                <v-icon size="24px">{{ icon }}</v-icon>
+              </v-btn>
+            </v-card-text>
+            <v-divider></v-divider>
+            <v-card-text class="white--text">
+              {{ new Date().getFullYear() }} —
+              <strong>{{ WebData.name }}</strong>
+            </v-card-text>
+          </v-card>
+        </v-sheet>
+      </v-content>
+      <v-navigation-drawer right v-model="drawer" absolute temporary>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>
+              <v-btn icon @click.stop="drawer = !drawer">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>Cart
+            </v-list-item-title>
+            <v-spacer></v-spacer>
+          </v-list-item-content>
+        </v-list-item>
 
         <v-divider></v-divider>
 
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>ShipIT</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
+        <v-list dense>
+          <v-list-item v-for="item in items" :key="item.title" link>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>
+                {{
+                item.title
+                }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+    </v-card>
   </v-app>
 </template>
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
-    export default {
-        data () {
-            return {
-                activeBtn: 1,
-            }
-        },
-        computed:{
-          ...mapState(['WebData','shopItem'])
-        },
-        methods:{
-          ...mapMutations(['setWebData']),
-          ...mapActions(['getWebData','getShopItem'])
-        },
-        created(){
-          this.getShopItem()
-          this.getWebData()
-        },
-        mounted(){
-          // 
-        }
-    }
+import { mapState, mapMutations, mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      activeBtn: 1,
+      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+      drawer: null,
+      items: [
+        { title: "Home", icon: "mdi-dashboard" },
+        { title: "About", icon: "mdi-question-answer" }
+      ]
+    };
+  },
+  computed: {
+    ...mapState(["WebData", "shopItem"])
+  },
+  methods: {
+    ...mapMutations(["setWebData"]),
+    ...mapActions(["getWebData", "getShopItem"])
+  },
+  created() {
+    this.getShopItem();
+    this.getWebData();
+  },
+  mounted() {
+    //
+  }
+};
 </script>
+<style>
+.m-height {
+  max-height: 100vh;
+}
+</style>

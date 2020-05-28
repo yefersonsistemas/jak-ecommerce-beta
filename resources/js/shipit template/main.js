@@ -16,6 +16,7 @@ const store = new Vuex.Store({
         productData: {},
         shopItem: {},
         productSearch: {},
+        offertProduct: [],
     },
     mutations: {
         setWebData(state, objectWebData) {
@@ -29,6 +30,9 @@ const store = new Vuex.Store({
         },
         setShopItem(state, objectShopData) {
             state.shopItem = objectShopData
+        },
+        setOffertProduct(state, objectOffertProduct) {
+            state.offertProduct = objectOffertProduct
         },
     },
     actions: {
@@ -58,6 +62,13 @@ const store = new Vuex.Store({
         }) {
             await Axios.post("/getProductSearch").then(response => {
                 commit('setProductSearch', response.data)
+            })
+        },
+        async getOffertProduct({
+            commit
+        }) {
+            await Axios.post("/getOffertProduct").then(response => {
+                commit('setOffertProduct', response.data)
             })
         }
     }
