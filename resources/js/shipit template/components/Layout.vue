@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" style="height: 0px;">
+  <v-app id="inspire">
     <v-card class="overflow-hidden">
       <v-app-bar
         :clipped-left="$vuetify.breakpoint.lgAndUp"
@@ -10,8 +10,8 @@
         src="https://picsum.photos/1920/1080?random"
         fade-img-on-scroll
         scroll-target="#scrolling-techniques-3"
+        app
       >
-        <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
 
         <template v-slot:img="{ props }">
           <v-img v-bind="props" gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"></v-img>
@@ -47,19 +47,28 @@
           <v-icon>mdi-information-outline</v-icon>
         </a>
       </v-app-bar>
-      <v-sheet
+      <v-content>
+        <v-sheet
         id="scrolling-techniques-3"
         class="overflow-y-auto"
-        max-height="600"
+        :max-height="windowsHeight"
         style="padding-right: 20px"
       >
         <router-view />
       </v-sheet>
+      </v-content>
+      
       <v-footer :padless="true">
         <v-card flat tile width="100%" class="secondary white--text text-center">
-          <v-card-text class="white--text">asdasd</v-card-text>
-
-          <v-card-text class="white--text pt-0">&nbsp;</v-card-text>
+          <v-card-text class="white--text"> <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4"
+          dark
+          icon
+        >
+          <v-icon size="24px">{{ icon }}</v-icon>
+        </v-btn></v-card-text>
           <v-divider></v-divider>
           <v-card-text class="white--text">
             {{ new Date().getFullYear() }} —
@@ -75,7 +84,14 @@ import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
-      activeBtn: 1
+      activeBtn: 1,
+       icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
+      windowsHeight : 0, 
     };
   },
   computed: {
@@ -87,7 +103,8 @@ export default {
   },
   created() {
     this.getShopItem();
-    this.getWebData();
+    this.getWebData()
+    this.windowsHeight = window.innerHeight - 175
   },
   mounted() {
     //
