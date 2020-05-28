@@ -3080,180 +3080,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      range: [0, 10000],
-      select: "Popularity",
-      options: ["Default", "Popularity", "Relevance", "Price: Low to High", "Price: High to Low"],
+      range: [0, 400],
       page: 1,
       min: 0,
-      max: 10000,
-      products: [{
-        id: 1,
-        name: "BLACK TEE",
-        type: "Jackets",
-        price: "18.00",
-        src: __webpack_require__(/*! ../assets/img/shop/1.jpg */ "./resources/js/shipit template/assets/img/shop/1.jpg")
-      }, {
-        id: 2,
-        name: "WHITE TEE",
-        type: "Polo",
-        price: "40.00",
-        src: __webpack_require__(/*! ../assets/img/shop/2.jpg */ "./resources/js/shipit template/assets/img/shop/2.jpg")
-      }, {
-        id: 3,
-        name: "Zara limited...",
-        type: "Denim",
-        price: "25.00",
-        src: __webpack_require__(/*! ../assets/img/shop/3.jpg */ "./resources/js/shipit template/assets/img/shop/3.jpg")
-      }, {
-        id: 4,
-        name: "SKULL TEE",
-        type: "Jackets",
-        price: "30.00",
-        src: __webpack_require__(/*! ../assets/img/shop/4.jpg */ "./resources/js/shipit template/assets/img/shop/4.jpg")
-      }, {
-        id: 5,
-        name: "MANGO WINTER",
-        type: "Sweaters",
-        price: "50.00",
-        src: __webpack_require__(/*! ../assets/img/shop/5.jpg */ "./resources/js/shipit template/assets/img/shop/5.jpg")
-      }, {
-        id: 6,
-        name: "SHIRT",
-        type: "Denim",
-        price: "34.00",
-        src: __webpack_require__(/*! ../assets/img/shop/6.jpg */ "./resources/js/shipit template/assets/img/shop/6.jpg")
-      }, {
-        id: 7,
-        name: "TRUCKER JACKET",
-        type: "Jackets",
-        price: "38.00",
-        src: __webpack_require__(/*! ../assets/img/shop/7.jpg */ "./resources/js/shipit template/assets/img/shop/7.jpg")
-      }, {
-        id: 8,
-        name: "COATS",
-        type: "Jackets",
-        price: "25.00",
-        src: __webpack_require__(/*! ../assets/img/shop/8.jpg */ "./resources/js/shipit template/assets/img/shop/8.jpg")
-      }, {
-        id: 9,
-        name: "MANGO WINTER",
-        type: "Sweaters",
-        price: "50.00",
-        src: __webpack_require__(/*! ../assets/img/shop/9.jpg */ "./resources/js/shipit template/assets/img/shop/9.jpg")
-      }, {
-        id: 10,
-        name: "SHIRT",
-        type: "Denim",
-        price: "34.00",
-        src: __webpack_require__(/*! ../assets/img/shop/10.jpg */ "./resources/js/shipit template/assets/img/shop/10.jpg")
-      }, {
-        id: 11,
-        name: "TRUCKER JACKET",
-        type: "Jackets",
-        price: "38.00",
-        src: __webpack_require__(/*! ../assets/img/shop/11.jpg */ "./resources/js/shipit template/assets/img/shop/11.jpg")
-      }, {
-        id: 12,
-        name: "COATS",
-        type: "Jackets",
-        price: "25.00",
-        src: __webpack_require__(/*! ../assets/img/shop/12.jpg */ "./resources/js/shipit template/assets/img/shop/12.jpg")
-      }]
+      max: 400
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["shopItem", "productSearch"])),
@@ -3312,7 +3146,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n.v-card--reveal {\r\n    align-items: center;\r\n    bottom: 0;\r\n    justify-content: center;\r\n    opacity: 0.8;\r\n    position: absolute;\r\n    width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.v-card--reveal {\r\n  align-items: center;\r\n  bottom: 0;\r\n  justify-content: center;\r\n  opacity: 0.8;\r\n  position: absolute;\r\n  width: 100%;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -6266,94 +6100,6 @@ var render = function() {
                       )
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c("v-card-title", { staticClass: "pb-0" }, [
-                    _vm._v("Customer Rating")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "v-container",
-                    { staticClass: "pt-0", attrs: { fluid: "" } },
-                    [
-                      _c("v-checkbox", {
-                        attrs: {
-                          "append-icon": "mdi-star",
-                          label: "4 & above",
-                          "hide-details": "",
-                          dense: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: {
-                          "append-icon": "mdi-star",
-                          label: "3 & above",
-                          "hide-details": "",
-                          dense: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: {
-                          "append-icon": "mdi-star",
-                          label: "2 & above",
-                          "hide-details": "",
-                          dense: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: {
-                          "append-icon": "mdi-star",
-                          label: "1 & above",
-                          "hide-details": "",
-                          dense: ""
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c("v-card-title", { staticClass: "pb-0" }, [_vm._v("Size")]),
-                  _vm._v(" "),
-                  _c(
-                    "v-container",
-                    { staticClass: "pt-0", attrs: { fluid: "" } },
-                    [
-                      _c("v-checkbox", {
-                        attrs: { label: "XS", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "S", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "M", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "L", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "XL", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "XXL", "hide-details": "", dense: "" }
-                      }),
-                      _vm._v(" "),
-                      _c("v-checkbox", {
-                        attrs: { label: "XXXL", "hide-details": "", dense: "" }
-                      })
-                    ],
-                    1
                   )
                 ],
                 2
@@ -6406,10 +6152,7 @@ var render = function() {
                                         },
                                         [
                                           _c("v-card-title", [
-                                            _vm._v(
-                                              _vm._s(pro.type) +
-                                                "\n                                    "
-                                            )
+                                            _vm._v(_vm._s(pro.type))
                                           ]),
                                           _vm._v(" "),
                                           _c("v-expand-transition", [
@@ -6429,7 +6172,9 @@ var render = function() {
                                                           "v-btn",
                                                           {
                                                             attrs: {
-                                                              href: "/product",
+                                                              href:
+                                                                "/product/" +
+                                                                pro.code,
                                                               outlined: ""
                                                             }
                                                           },
@@ -6456,7 +6201,9 @@ var render = function() {
                                                 staticStyle: {
                                                   "text-decoration": "none"
                                                 },
-                                                attrs: { href: "/product" }
+                                                attrs: {
+                                                  href: "/product/" + pro.code
+                                                }
                                               },
                                               [_vm._v(_vm._s(pro.name))]
                                             )
@@ -6483,24 +6230,6 @@ var render = function() {
                   )
                 }),
                 0
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "text-center mt-12" },
-                [
-                  _c("v-pagination", {
-                    attrs: { length: 6 },
-                    model: {
-                      value: _vm.page,
-                      callback: function($$v) {
-                        _vm.page = $$v
-                      },
-                      expression: "page"
-                    }
-                  })
-                ],
-                1
               )
             ],
             1
@@ -66760,45 +66489,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/shipit template/assets/img/shop/10.jpg":
-/*!*************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/10.jpg ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/10.jpg?3838b03b5f2ed5191e0f79f623949c5e");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/11.jpg":
-/*!*************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/11.jpg ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/11.jpg?87e9ad3e945bba47642d22351c629156");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/12.jpg":
-/*!*************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/12.jpg ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/12.jpg?01880b952b3cfb6afe6b2d7715194d6d");
-
-/***/ }),
-
 /***/ "./resources/js/shipit template/assets/img/shop/2.jpg":
 /*!************************************************************!*\
   !*** ./resources/js/shipit template/assets/img/shop/2.jpg ***!
@@ -66825,19 +66515,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/shipit template/assets/img/shop/4.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/4.jpg ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/4.jpg?25a6e2e1c275bda087e79661c44ebae1");
-
-/***/ }),
-
 /***/ "./resources/js/shipit template/assets/img/shop/5.jpg":
 /*!************************************************************!*\
   !*** ./resources/js/shipit template/assets/img/shop/5.jpg ***!
@@ -66848,58 +66525,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("/images/5.jpg?eb0d7e275367abe4a8b5a25c3de3f976");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/6.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/6.jpg ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/6.jpg?e5dc3b6387b7aa2c4711c5340f9a53dd");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/7.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/7.jpg ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/7.jpg?b34364725e24afd9bb6032d70fac5ba2");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/8.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/8.jpg ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/8.jpg?0a6b84f9397378097cda7b479caef98e");
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/9.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/9.jpg ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/images/9.jpg?7038920d2bb583c83580bffe8aca61b8");
 
 /***/ }),
 

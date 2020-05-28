@@ -72,28 +72,9 @@ class product_controller extends Controller
     }
 
     function productSearch(){
-            $productSearch = '[
-                {
-                    "name"   : "BLACK TEE",
-                    "type"   : "Jackets",
-                    "price"  : "18.00" ,
-                    "images" : "https://picsum.photos/1920/1080?random"
-                },
-                {
-                    "name"   : "BLACK TEE",
-                    "type"   : "Jackets",
-                    "price"  : "18.00" ,
-                    "images" : "https://picsum.photos/1920/1080?random"
-                },
-                {
-                    "name"   : "BLACK TEE",
-                    "type"   : "Jackets",
-                    "price"  : "18.00" ,
-                    "images" : "https://picsum.photos/1920/1080?random"
-                }
-            ]';
+            $productSearch = DB::select("select * from  view_productosbuscar");
 
-            return response()->json(DB::select("select * from  view_productosbuscar"), 200);
+            return response()->json($productSearch, 200);
 
     }
     function OffertProduct(){
