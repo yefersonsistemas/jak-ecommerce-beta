@@ -21,6 +21,8 @@ Route::post('/getProductData', 'product_controller@index');
 
 Route::post('/getProductSearch', 'product_controller@productSearch');
 
+Route::post('/getProductSearchHome', 'product_controller@productSearchHome');
+
 Route::post('/getOffertProduct', 'product_controller@OffertProduct');
 
 Route::get('/panel', 'view_controller@panel');

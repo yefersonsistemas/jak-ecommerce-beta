@@ -77,6 +77,14 @@ class product_controller extends Controller
             return response()->json($productSearch, 200);
 
     }
+
+    function productSearchHome(){
+            $productSearch = DB::select("select * from  view_productosbuscar limit 3");
+
+            return response()->json($productSearch, 200);
+
+    }
+    
     function OffertProduct(){
             $OffertProduct = '[
                 {

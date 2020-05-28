@@ -35,9 +35,9 @@ export default new Router({
                     name: 'Blog'
                 },
                 {
-                    path: '/post',
+                    path: '/about-us',
                     component: Post,
-                    name: 'Post'
+                    name: 'about-us'
                 },
                 {
                     path: '/cart',
