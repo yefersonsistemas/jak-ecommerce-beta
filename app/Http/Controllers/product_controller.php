@@ -83,6 +83,28 @@ class product_controller extends Controller
             ]';
 
         return response()->json(json_decode($productSearch));
-        
+
+    }
+    function OffertProduct(){
+            $OffertProduct = '[
+                {
+                    "id" : 1,
+                    "images" : "https://picsum.photos/1920/1080?random",
+                    "message" : "10% descuento"
+                },
+                {
+                    "id" : 2,
+                    "images" : "https://picsum.photos/1920/1080?random",
+                    "message" : "30% descuento"
+                },
+                {
+                    "id" : 3,
+                    "images" : "https://picsum.photos/1920/1080?random",
+                    "message" : "40% descuento"
+                }
+            ]';
+
+        return response()->json(json_decode($OffertProduct));
+
     }
 }

@@ -1,34 +1,10 @@
 <template>
   <div id="scrolling-techniques-3">
     <v-carousel hide-delimiters>
-      <v-carousel-item :src="require('../assets/img/home/slider4.jpg')">
+      <v-carousel-item :key="item.id" v-for="item in offertProduct" :src="item.images">
         <v-row class="fill-height" align="center" justify="center">
           <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
-      </v-carousel-item>
-      <v-carousel-item :src="require('../assets/img/home/slider2.jpg')">
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
-      </v-carousel-item>
-      <v-carousel-item :src="require('../assets/img/home/slider3.jpg')">
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
-          </div>
-          <br />
-        </v-row>
-      </v-carousel-item>
-      <v-carousel-item :src="require('../assets/img/home/slider1.jpg')">
-        <v-row class="fill-height" align="center" justify="center">
-          <div class="display-2 white--text pl-5 pr-5 hidden-sm-only">
-            <strong>Upto 60% + Extra 10%</strong>
+            <strong>{{ item.message }}</strong>
           </div>
           <br />
         </v-row>
@@ -38,7 +14,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="require('../assets/img/home/slider2.jpg')"
+            src="images/slider2.jpg"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
@@ -66,7 +42,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="require('../assets/img/home/slider3.jpg')"
+            src="images/slider3.jpg"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
@@ -83,7 +59,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="require('../assets/img/home/deal2.jpg')"
+            src="images/deal2.jpg"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
@@ -101,7 +77,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="require('../assets/img/home/deal3.jpg')"
+            src="images/deal3.jpg"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
@@ -119,7 +95,7 @@
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
           <v-img
-            :src="require('../assets/img/home/deal4.jpg')"
+            src="images/deal4.jpg"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
@@ -240,6 +216,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -259,6 +236,15 @@ export default {
       ],
       slides: ["First", "Second", "Third", "Fourth", "Fifth"]
     };
+  },
+  computed: {
+    ...mapState(["offertProduct"])
+  },
+  methods: {
+    ...mapActions(["getOffertProduct"])
+  },
+  created() {
+    this.getOffertProduct();
   }
 };
 </script>
