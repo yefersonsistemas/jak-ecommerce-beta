@@ -2,9 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
-import vuetify from '@/js/shipit template/plugins/vuetify' // path to vuetify export
-import router from '@/js/shipit template/router'
-import App from '@/js/shipit template/App'
+import vuetify from '@shipit/plugins/vuetify' // path to vuetify export
+import router from "@shipit/router";
+import App from "@shipit/App";
 import Axios from 'axios'
 // import 'material-design-icons-iconfont/dist/material-design-icons.css'
 

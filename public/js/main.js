@@ -66989,9 +66989,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _js_shipit_template_plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/js/shipit template/plugins/vuetify */ "./resources/js/shipit template/plugins/vuetify.js");
-/* harmony import */ var _js_shipit_template_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/js/shipit template/router */ "./resources/js/shipit template/router/index.js");
-/* harmony import */ var _js_shipit_template_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/js/shipit template/App */ "./resources/js/shipit template/App.vue");
+/* harmony import */ var _shipit_plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shipit/plugins/vuetify */ "./resources/js/shipit template/plugins/vuetify.js");
+/* harmony import */ var _shipit_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shipit/router */ "./resources/js/shipit template/router/index.js");
+/* harmony import */ var _shipit_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shipit/App */ "./resources/js/shipit template/App.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
 
@@ -67173,11 +67173,11 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
 
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
-  router: _js_shipit_template_router__WEBPACK_IMPORTED_MODULE_4__["default"],
-  vuetify: _js_shipit_template_plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],
+  router: _shipit_router__WEBPACK_IMPORTED_MODULE_4__["default"],
+  vuetify: _shipit_plugins_vuetify__WEBPACK_IMPORTED_MODULE_3__["default"],
   store: store,
   components: {
-    App: _js_shipit_template_App__WEBPACK_IMPORTED_MODULE_5__["default"]
+    App: _shipit_App__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   template: '<App/>'
 });
@@ -67237,13 +67237,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _js_shipit_template_components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/js/shipit template/components/Home */ "./resources/js/shipit template/components/Home.vue");
-/* harmony import */ var _js_shipit_template_components_Shop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/js/shipit template/components/Shop */ "./resources/js/shipit template/components/Shop.vue");
-/* harmony import */ var _js_shipit_template_components_Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/js/shipit template/components/Product */ "./resources/js/shipit template/components/Product.vue");
-/* harmony import */ var _js_shipit_template_components_Blog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/js/shipit template/components/Blog */ "./resources/js/shipit template/components/Blog.vue");
-/* harmony import */ var _js_shipit_template_components_Post__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/js/shipit template/components/Post */ "./resources/js/shipit template/components/Post.vue");
-/* harmony import */ var _js_shipit_template_components_Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/js/shipit template/components/Cart */ "./resources/js/shipit template/components/Cart.vue");
-/* harmony import */ var _js_shipit_template_components_Layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/js/shipit template/components/Layout */ "./resources/js/shipit template/components/Layout.vue");
+/* harmony import */ var _shipit_components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shipit/components/Home */ "./resources/js/shipit template/components/Home.vue");
+/* harmony import */ var _shipit_components_Shop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shipit/components/Shop */ "./resources/js/shipit template/components/Shop.vue");
+/* harmony import */ var _shipit_components_Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shipit/components/Product */ "./resources/js/shipit template/components/Product.vue");
+/* harmony import */ var _shipit_components_Blog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shipit/components/Blog */ "./resources/js/shipit template/components/Blog.vue");
+/* harmony import */ var _shipit_components_Post__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shipit/components/Post */ "./resources/js/shipit template/components/Post.vue");
+/* harmony import */ var _shipit_components_Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @shipit/components/Cart */ "./resources/js/shipit template/components/Cart.vue");
+/* harmony import */ var _shipit_components_Layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @shipit/components/Layout */ "./resources/js/shipit template/components/Layout.vue");
 
 
 
@@ -67257,30 +67257,30 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: '/',
-    component: _js_shipit_template_components_Layout__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _shipit_components_Layout__WEBPACK_IMPORTED_MODULE_8__["default"],
     children: [{
       path: '/',
-      component: _js_shipit_template_components_Home__WEBPACK_IMPORTED_MODULE_2__["default"],
+      component: _shipit_components_Home__WEBPACK_IMPORTED_MODULE_2__["default"],
       name: 'Home'
     }, {
       path: '/shop',
-      component: _js_shipit_template_components_Shop__WEBPACK_IMPORTED_MODULE_3__["default"],
+      component: _shipit_components_Shop__WEBPACK_IMPORTED_MODULE_3__["default"],
       name: 'Shop'
     }, {
       path: '/product',
-      component: _js_shipit_template_components_Product__WEBPACK_IMPORTED_MODULE_4__["default"],
+      component: _shipit_components_Product__WEBPACK_IMPORTED_MODULE_4__["default"],
       name: 'Product'
     }, {
       path: '/blog',
-      component: _js_shipit_template_components_Blog__WEBPACK_IMPORTED_MODULE_5__["default"],
+      component: _shipit_components_Blog__WEBPACK_IMPORTED_MODULE_5__["default"],
       name: 'Blog'
     }, {
       path: '/about-us',
-      component: _js_shipit_template_components_Post__WEBPACK_IMPORTED_MODULE_6__["default"],
+      component: _shipit_components_Post__WEBPACK_IMPORTED_MODULE_6__["default"],
       name: 'about-us'
     }, {
       path: '/cart',
-      component: _js_shipit_template_components_Cart__WEBPACK_IMPORTED_MODULE_7__["default"],
+      component: _shipit_components_Cart__WEBPACK_IMPORTED_MODULE_7__["default"],
       name: 'Cart'
     }]
   }],
@@ -67296,7 +67296,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
+module.exports = __webpack_require__(/*! C:\Users\Desarrollo Web 2\Documents\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
 
 
 /***/ })
