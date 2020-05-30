@@ -17,6 +17,8 @@ Route::post('/getWebData', 'webconf_controller@index');
 
 Route::post('/getShopItem', 'webconf_controller@shopItem');
 
+Route::post('/getAboutus', 'webconf_controller@aboutus');
+
 Route::post('/getProductData', 'product_controller@index');
 
 Route::post('/getProductSearch', 'product_controller@productSearch');

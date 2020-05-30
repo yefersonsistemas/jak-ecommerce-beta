@@ -58932,7 +58932,7 @@ new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Desarrollo Web 2\Documents\jakshop_beta\resources\js\panel js\main_panel.js */"./resources/js/panel js/main_panel.js");
+module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_beta\resources\js\panel js\main_panel.js */"./resources/js/panel js/main_panel.js");
 
 
 /***/ })

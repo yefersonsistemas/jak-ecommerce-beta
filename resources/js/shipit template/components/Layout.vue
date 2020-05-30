@@ -39,7 +39,7 @@
                     <v-icon>mdi-home</v-icon>
                 </a>
                 <a
-                    href="/shop"
+                    href="/search"
                     class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default"
                     icon
                 >
@@ -138,14 +138,12 @@ export default {
         };
     },
     computed: {
-        ...mapState(["WebData", "shopItem"])
+        ...mapState(["WebData"])
     },
     methods: {
-        ...mapMutations(["setWebData"]),
-        ...mapActions(["getWebData", "getShopItem"])
+        ...mapActions(["getWebData"])
     },
     created() {
-        this.getShopItem();
         this.getWebData();
     },
     mounted() {

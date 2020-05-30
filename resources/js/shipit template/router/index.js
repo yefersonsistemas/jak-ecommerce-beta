@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@shipit/components/Home'
-import Shop from '@shipit/components/Shop'
+import search from '@shipit/components/search'
 import Product from '@shipit/components/Product'
 import Blog from '@shipit/components/Blog'
-import Post from '@shipit/components/Post'
+import about_us from '@shipit/components/about-us'
 import Cart from '@shipit/components/Cart'
 import Layout from '@shipit/components/Layout'
 
@@ -20,13 +20,19 @@ export default new Router({
                     name: 'Home'
                 },
                 {
-                    path: '/shop',
-                    component: Shop,
-                    name: 'Shop'
+                    path: '/search',
+                    component: search,
+                    name: 'search'
                 },
                 {
                     path: '/product',
                     component: Product,
+                    name: 'ProductNoExist'
+                },
+                {
+                    path: '/product/:codeProduct',
+                    component: Product,
+                    props: true,
                     name: 'Product'
                 },
                 {
@@ -36,7 +42,7 @@ export default new Router({
                 },
                 {
                     path: '/about-us',
-                    component: Post,
+                    component: about_us,
                     name: 'about-us'
                 },
                 {

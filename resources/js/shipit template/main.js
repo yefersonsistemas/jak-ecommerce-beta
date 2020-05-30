@@ -18,6 +18,7 @@ const store = new Vuex.Store({
         productSearch: {},
         offertProduct: [],
         productSearchHome: {},
+        aboutusDATA: [],
     },
     mutations: {
         setWebData(state, objectWebData) {
@@ -38,6 +39,9 @@ const store = new Vuex.Store({
         setOffertProduct(state, objectOffertProduct) {
             state.offertProduct = objectOffertProduct
         },
+        setAboutus(state, objectAboutus) {
+            state.aboutusDATA = objectAboutus
+        },
     },
     actions: {
         async getWebData({
@@ -56,8 +60,10 @@ const store = new Vuex.Store({
         },
         async getProductData({
             commit
-        }) {
-            await Axios.post("/getProductData").then(response => {
+        }, $productCode) {
+            await Axios.post("/getProductData", {
+                productCode: $productCode
+            }).then(response => {
                 commit('setProductData', response.data)
             })
         },
@@ -80,6 +86,13 @@ const store = new Vuex.Store({
         }) {
             await Axios.post("/getOffertProduct").then(response => {
                 commit('setOffertProduct', response.data)
+            })
+        },
+        async getAboutus({
+            commit
+        }) {
+            await Axios.post("/getAboutus").then(response => {
+                commit('setAboutus', response.data)
             })
         }
     }
