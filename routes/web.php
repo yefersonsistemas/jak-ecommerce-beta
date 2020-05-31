@@ -27,6 +27,8 @@ Route::post('/getProductSearchHome', 'product_controller@productSearchHome');
 
 Route::post('/getOffertProduct', 'product_controller@OffertProduct');
 
+Route::get('/test', 'view_controller@test');
+
 Route::get('/panel', 'view_controller@panel');
 
 Route::get('/{any}', 'view_controller@index')->where('any','.*');

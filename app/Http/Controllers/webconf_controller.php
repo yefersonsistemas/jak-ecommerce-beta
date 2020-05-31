@@ -9,8 +9,8 @@ class webconf_controller extends Controller
     //
     function index ()
     {
-        $name = 'jak solutions';
-        $shortName = "jak";
+        $name = 'Jak Solutions';
+        $shortName = "Jak";
         return response()->json([
             'name' => $name,
             'shortName' => $shortName

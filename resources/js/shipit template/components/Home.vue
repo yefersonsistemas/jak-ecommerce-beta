@@ -1,5 +1,5 @@
 <template>
-    <div id="scrolling-techniques-3">
+    <div>
         <v-carousel hide-delimiters>
             <v-carousel-item
                 :key="item.id"

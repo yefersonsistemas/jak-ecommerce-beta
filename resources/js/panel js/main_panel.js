@@ -2,9 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import Vuex from "vuex";
-import vuetify from "vuetify"; // path to vuetify export
+import vuetify from "@panel/plugins/vuetify"; // path to vuetify export
 import Axios from "axios";
 import product_f from "@panel/components/products-admin";
+import test from "@panel/components/test";
 // import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.use(Vuex);
@@ -23,12 +24,16 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        async getWebData({ commit }) {
+        async getWebData({
+            commit
+        }) {
             await Axios.post("/getWebData").then(response => {
                 commit("setWebData", response.data);
             });
         },
-        async getProductData({ commit }) {
+        async getProductData({
+            commit
+        }) {
             await Axios.post("/getProductData").then(response => {
                 commit("setProductData", response.data);
             });
@@ -39,9 +44,10 @@ const store = new Vuex.Store({
 /* eslint-disable no-new */
 new Vue({
     el: "#app",
-    vuetify,
     store,
+    vuetify,
     components: {
-        product_f
+        product_f,
+        test
     }
 });

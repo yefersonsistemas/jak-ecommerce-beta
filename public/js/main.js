@@ -2556,6 +2556,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2565,10 +2579,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       drawer: null,
       items: [{
         title: "Home",
-        icon: "mdi-dashboard"
+        icon: "mdi-facebook"
       }, {
         title: "About",
-        icon: "mdi-question-answer"
+        icon: "mdi-facebook"
       }]
     };
   },
@@ -2576,8 +2590,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData"])),
   created: function created() {
     this.getWebData();
-  },
-  mounted: function mounted() {//
   }
 });
 
@@ -3109,6 +3121,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3120,9 +3153,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["shopItem", "productSearch"])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getProductSearch"])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getProductSearch", "getShopItem"])),
   created: function created() {
     this.getProductSearch();
+    this.getShopItem();
   }
 });
 
@@ -3178,7 +3212,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.m-height {\r\n    max-height: 100vh;\n}\r\n", ""]);
+exports.push([module.i, "\n.m-height {\r\n    max-height: 100vmin;\n}\r\n", ""]);
 
 // exports
 
@@ -3197,7 +3231,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.v-card--reveal {\r\n  align-items: center;\r\n  bottom: 0;\r\n  justify-content: center;\r\n  opacity: 0.8;\r\n  position: absolute;\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.v-card--reveal {\r\n    align-items: center;\r\n    bottom: 0;\r\n    justify-content: center;\r\n    opacity: 0.8;\r\n    position: absolute;\r\n    width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -5809,7 +5843,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "scrolling-techniques-3" } },
     [
       _c(
         "v-carousel",
@@ -6391,213 +6424,216 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { attrs: { id: "inspire" } },
+    { staticClass: "overflow-hidden", attrs: { id: "inspire" } },
     [
       _c(
-        "v-card",
-        { staticClass: "overflow-hidden" },
-        [
-          _c(
-            "v-app-bar",
+        "v-app-bar",
+        {
+          attrs: {
+            fixed: "",
+            color: "teal darken-1",
+            dark: "",
+            "shrink-on-scroll": "",
+            prominent: "",
+            src: "https://picsum.photos/1920/1080?random",
+            "fade-img-on-scroll": "",
+            "scroll-threshold": "500"
+          },
+          scopedSlots: _vm._u([
             {
-              attrs: {
-                "clipped-left": _vm.$vuetify.breakpoint.lgAndUp,
-                color: "teal darken-1",
-                dark: "",
-                "shrink-on-scroll": "",
-                prominent: "",
-                src: "https://picsum.photos/1920/1080?random",
-                "fade-img-on-scroll": "",
-                "scroll-target": "#scrolling-techniques-3",
-                app: ""
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "img",
-                  fn: function(ref) {
-                    var props = ref.props
-                    return [
-                      _c(
-                        "v-img",
-                        _vm._b(
-                          {
-                            attrs: {
-                              gradient:
-                                "to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
-                            }
-                          },
-                          "v-img",
-                          props,
-                          false
-                        )
-                      )
-                    ]
-                  }
-                }
-              ])
-            },
-            [
-              _vm._v(" "),
-              _c("v-toolbar-title", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "white--text",
-                    staticStyle: { "text-decoration": "none" },
-                    attrs: { href: "/" }
-                  },
-                  [
-                    _c("v-icon", [_vm._v("mdi-truck")]),
-                    _vm._v(
-                      "\n                     " +
-                        _vm._s(_vm.WebData.shortName) +
-                        "\n                "
+              key: "img",
+              fn: function(ref) {
+                var props = ref.props
+                return [
+                  _c(
+                    "v-img",
+                    _vm._b(
+                      {
+                        attrs: {
+                          gradient:
+                            "to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+                        }
+                      },
+                      "v-img",
+                      props,
+                      false
                     )
-                  ],
-                  1
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _c("v-toolbar-title", { staticStyle: { "margin-left": "5%" } }, [
+            _c(
+              "a",
+              {
+                staticClass: "white--text",
+                staticStyle: { "text-decoration": "none" },
+                attrs: { href: "/" }
+              },
+              [
+                _vm._v(
+                  "\n                 " +
+                    _vm._s(_vm.WebData.shortName) +
+                    "\n            "
                 )
-              ]),
-              _vm._v(" "),
-              _c("v-spacer"),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
-                  attrs: { href: "/", icon: "" }
-                },
-                [_c("v-icon", [_vm._v("mdi-home")])],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
-                  attrs: { href: "/search", icon: "" }
-                },
-                [_c("v-icon", [_vm._v("mdi-magnify")])],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
-                  attrs: { href: "/about-us", icon: "" }
-                },
-                [_c("v-icon", [_vm._v("mdi-information-outline")])],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { icon: "" },
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      _vm.drawer = !_vm.drawer
-                    }
-                  }
-                },
-                [_c("v-icon", [_vm._v("mdi-cart")])],
-                1
-              )
-            ],
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+              attrs: { href: "/", icon: "" }
+            },
+            [_c("v-icon", [_vm._v("mdi-home-outline")])],
             1
           ),
           _vm._v(" "),
           _c(
-            "v-content",
+            "a",
+            {
+              staticClass:
+                "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+              attrs: { href: "/search", icon: "" }
+            },
+            [_c("v-icon", [_vm._v("mdi-magnify")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default",
+              attrs: { href: "/about-us", icon: "" }
+            },
+            [_c("v-icon", [_vm._v("mdi-information-outline")])],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { icon: "" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  _vm.drawer = !_vm.drawer
+                }
+              }
+            },
+            [_c("v-icon", [_vm._v("mdi-cart-outline")])],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-content",
+        { staticStyle: { "margin-top": "128px" } },
+        [_c("router-view")],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-footer",
+        { attrs: { padless: true } },
+        [
+          _c(
+            "v-card",
+            {
+              staticClass: "secondary white--text text-center ",
+              attrs: { flat: "", tile: "", width: "100%" }
+            },
             [
               _c(
-                "v-sheet",
-                {
-                  staticClass: "overflow-y-auto m-height",
-                  attrs: { id: "scrolling-techniques-3" }
-                },
-                [
-                  _c("router-view"),
-                  _vm._v(" "),
-                  _c(
-                    "v-card",
+                "v-card-text",
+                { staticClass: "white--text" },
+                _vm._l(_vm.icons, function(icon) {
+                  return _c(
+                    "v-btn",
                     {
-                      staticClass: "secondary white--text text-center",
-                      attrs: { flat: "", tile: "", width: "100%" }
+                      key: icon,
+                      staticClass: "mx-4",
+                      attrs: { dark: "", icon: "" }
                     },
                     [
-                      _c(
-                        "v-card-text",
-                        { staticClass: "white--text" },
-                        _vm._l(_vm.icons, function(icon) {
-                          return _c(
-                            "v-btn",
-                            {
-                              key: icon,
-                              staticClass: "mx-4",
-                              attrs: { dark: "", icon: "" }
-                            },
-                            [
-                              _c("v-icon", { attrs: { size: "24px" } }, [
-                                _vm._v(_vm._s(icon))
-                              ])
-                            ],
-                            1
-                          )
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-divider"),
-                      _vm._v(" "),
-                      _c("v-card-text", { staticClass: "white--text" }, [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(new Date().getFullYear()) +
-                            " —\n                        "
-                        ),
-                        _c("strong", [_vm._v(_vm._s(_vm.WebData.name))])
+                      _c("v-icon", { attrs: { size: "24px" } }, [
+                        _vm._v(_vm._s(icon))
                       ])
                     ],
                     1
                   )
-                ],
+                }),
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c("v-card-text", { staticClass: "white--text" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(new Date().getFullYear()) +
+                    " —\n                "
+                ),
+                _c("strong", [_vm._v(_vm._s(_vm.WebData.name))])
+              ])
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-navigation-drawer",
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-navigation-drawer",
+        {
+          staticClass: "m-height",
+          attrs: {
+            width: "45%",
+            right: "",
+            absolute: "",
+            fixed: "",
+            temporary: ""
+          },
+          scopedSlots: _vm._u([
             {
-              attrs: { right: "", absolute: "", temporary: "" },
-              model: {
-                value: _vm.drawer,
-                callback: function($$v) {
-                  _vm.drawer = $$v
-                },
-                expression: "drawer"
-              }
-            },
-            [
-              _c(
-                "v-list-item",
-                [
+              key: "append",
+              fn: function() {
+                return [
+                  _c("v-divider"),
+                  _vm._v(" "),
                   _c(
-                    "v-list-item-content",
+                    "div",
+                    { staticClass: "pa-2" },
                     [
                       _c(
-                        "v-list-item-title",
+                        "v-list-item",
                         [
                           _c(
-                            "v-btn",
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                            TOTAL: 5000$\n                        "
+                                )
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-icon",
                             {
-                              attrs: { icon: "" },
                               on: {
                                 click: function($event) {
                                   $event.stopPropagation()
@@ -6605,58 +6641,108 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("v-icon", [_vm._v("mdi-close")])],
+                            [_c("v-icon", [_vm._v("mdi-cart-arrow-down")])],
                             1
-                          ),
-                          _vm._v("Cart\n                    ")
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-spacer")
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("v-divider"),
-              _vm._v(" "),
-              _c(
-                "v-list",
-                { attrs: { dense: "" } },
-                _vm._l(_vm.items, function(item) {
-                  return _c(
-                    "v-list-item",
-                    { key: item.title, attrs: { link: "" } },
-                    [
-                      _c(
-                        "v-list-item-icon",
-                        [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-item-content",
-                        [
-                          _c("v-list-item-title", [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(item.title) +
-                                "\n                        "
-                            )
-                          ])
+                          )
                         ],
                         1
                       )
                     ],
                     1
                   )
-                }),
+                ]
+              },
+              proxy: true
+            }
+          ]),
+          model: {
+            value: _vm.drawer,
+            callback: function($$v) {
+              _vm.drawer = $$v
+            },
+            expression: "drawer"
+          }
+        },
+        [
+          _c(
+            "v-list-item",
+            [
+              _c(
+                "v-list-item-icon",
+                {
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      _vm.drawer = !_vm.drawer
+                    }
+                  }
+                },
+                [_c("v-icon", [_vm._v("mdi-close")])],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-content",
+                [
+                  _c("v-list-item-title", [
+                    _vm._v("\n                    Cart\n                ")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-list-item-icon",
+                {
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      _vm.drawer = !_vm.drawer
+                    }
+                  }
+                },
+                [_c("v-icon", [_vm._v("mdi-cart-outline")])],
                 1
               )
             ],
+            1
+          ),
+          _vm._v(" "),
+          _c("v-divider"),
+          _vm._v(" "),
+          _c(
+            "v-list",
+            { attrs: { "two-line": "", dense: "" } },
+            _vm._l(_vm.items, function(item) {
+              return _c(
+                "v-list-item",
+                { key: item.title, attrs: { link: "" } },
+                [
+                  _c(
+                    "v-list-item-content",
+                    [
+                      _c("v-list-item-title", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(item.title) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("v-list-item-subtitle", [_vm._v("35.5$")])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-item-icon",
+                    [_c("v-icon", [_vm._v("mdi-cart-remove")])],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
             1
           )
         ],

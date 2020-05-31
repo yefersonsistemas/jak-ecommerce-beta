@@ -33,7 +33,7 @@ class product_controller extends Controller
         if(count($reviewpunt = DB::select("select * from  view_reviewpuntuacion where ".$colum1." = '".$r->productCode."'")) >= 1){
             $review           = DB::select("select * from  view_review where code = '".$r->productCode."'");
             $countReview      = $reviewpunt[0]->countreview;
-            $puntation        = $reviewpunt[0]->puntation/$reviewpunt->countreview;
+            $puntation        = $reviewpunt[0]->puntation/$countReview;
         }else{
             $review      = null;
             $reviewpunt  = null;
