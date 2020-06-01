@@ -2587,9 +2587,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData"])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "addToCart"])),
   created: function created() {
     this.getWebData();
+    this.addToCart({
+      name: "hola",
+      id: 2,
+      quantity: 1
+    });
   }
 });
 
@@ -66835,7 +66840,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     productSearch: {},
     offertProduct: [],
     productSearchHome: {},
-    aboutusDATA: []
+    aboutusDATA: [],
+    cartProduct: []
   },
   mutations: {
     setWebData: function setWebData(state, objectWebData) {
@@ -66858,6 +66864,15 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     },
     setAboutus: function setAboutus(state, objectAboutus) {
       state.aboutusDATA = objectAboutus;
+    },
+    setCartProduct: function setCartProduct(state, objectProductCart) {
+      var push = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+      if (!push) {
+        state.cartProduct = objectProductCart;
+      } else {
+        state.cartProduct.push(objectProductCart);
+      }
     }
   },
   actions: {
@@ -67009,6 +67024,36 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
           }
         }, _callee7);
       }))();
+    },
+    getProductsCart: function getProductsCart(_ref8) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                commit = _ref8.commit;
+                _context8.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductsCart").then(function (response) {
+                  console.log(response.data);
+                  commit('setCartProduct', response.data);
+                });
+
+              case 3:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8);
+      }))();
+    },
+    addToCart: function addToCart(_ref9, productsCart) {
+      var commit = _ref9.commit;
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/addProdutToCart", {
+        productsCart: productsCart
+      }).then(function (response) {
+        store.dispatch('getProductsCart');
+      });
     }
   }
 });

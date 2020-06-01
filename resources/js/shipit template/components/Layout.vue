@@ -155,10 +155,12 @@ export default {
         ...mapState(["WebData"])
     },
     methods: {
-        ...mapActions(["getWebData"])
+        ...mapMutations(["setCartProduct"]),
+        ...mapActions(["getWebData", "addToCart"])
     },
     created() {
         this.getWebData();
+        this.addToCart({ name: "hola", id: 2, quantity: 1 });
     }
 };
 </script>

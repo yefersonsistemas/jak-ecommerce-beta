@@ -19,6 +19,7 @@ const store = new Vuex.Store({
         offertProduct: [],
         productSearchHome: {},
         aboutusDATA: [],
+        cartProduct: [],
     },
     mutations: {
         setWebData(state, objectWebData) {
@@ -41,6 +42,14 @@ const store = new Vuex.Store({
         },
         setAboutus(state, objectAboutus) {
             state.aboutusDATA = objectAboutus
+        },
+        setCartProduct(state, objectProductCart, push = false) {
+            if (!push) {
+                state.cartProduct = objectProductCart
+            } else {
+                state.cartProduct.push(objectProductCart)
+            }
+
         },
     },
     actions: {
@@ -94,7 +103,27 @@ const store = new Vuex.Store({
             await Axios.post("/getAboutus").then(response => {
                 commit('setAboutus', response.data)
             })
-        }
+        },
+        async getProductsCart({
+            commit
+        }) {
+
+            await Axios.post("/getProductsCart").then(response => {
+                console.log(response.data)
+                commit('setCartProduct', response.data)
+            })
+
+        },
+        addToCart({
+            commit
+        }, productsCart) {
+            Axios.post("/addProdutToCart", {
+                productsCart: productsCart
+            }).then(response => {
+                store.dispatch('getProductsCart')
+            })
+
+        },
     }
 })
 

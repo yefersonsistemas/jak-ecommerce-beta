@@ -27,6 +27,12 @@ Route::post('/getProductSearchHome', 'product_controller@productSearchHome');
 
 Route::post('/getOffertProduct', 'product_controller@OffertProduct');
 
+Route::post('/addProdutToCart', 'cart_controller@addToCart');
+
+Route::get('/getaddProdutToCart', 'cart_controller@addToCart');
+
+Route::post('/getProductsCart', 'cart_controller@getProductCart');
+
 Route::get('/test', 'view_controller@test');
 
 Route::get('/panel', 'view_controller@panel');
