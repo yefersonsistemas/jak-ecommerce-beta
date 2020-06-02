@@ -1,10 +1,6 @@
 CREATE OR REPLACE VIEW public.view_productosclass AS 
- SELECT "tbl_productosClass".code as codeclass,
-    "tbl_productosClass".name as nameclass,
+ SELECT
     "tbl_poductsType".code as codetipo,
-    "tbl_poductsType".name as nametipo,
-    tbl_productos."imgSrc" as images
-   FROM "tbl_productosClass",
-   "tbl_poductsType"
-   left join tbl_productos on "tbl_poductsType".code = tbl_productos."typeCode"
-   limit 1
+    "tbl_poductsType".name as nametipo
+   FROM "tbl_productosClass"
+     inner JOIN "tbl_poductsType" ON "tbl_productosClass".code = "tbl_poductsType"."classCode"
