@@ -21,7 +21,6 @@ class TblProductos extends Migration
                 $table->string('descripcion');
                 $table->string('shortDescripcion');
                 $table->string('typeCode');
-                $table->float('discount')->nullable();
                 $table->string('materials');
                 $table->float('actualPrice');
                 $table->integer('existenc');

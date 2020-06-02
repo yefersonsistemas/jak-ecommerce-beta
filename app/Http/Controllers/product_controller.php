@@ -78,25 +78,28 @@ class product_controller extends Controller
 
     }
     function OffertProduct(){
-            $OffertProduct = '[
-                {
-                    "id" : 1,
-                    "images" : "https://picsum.photos/1920/1080?random",
-                    "message" : "10% descuento"
-                },
-                {
-                    "id" : 2,
-                    "images" : "https://picsum.photos/1920/1080?random",
-                    "message" : "30% descuento"
-                },
-                {
-                    "id" : 3,
-                    "images" : "https://picsum.photos/1920/1080?random",
-                    "message" : "40% descuento"
-                }
-            ]';
+            // $OffertProduct = '[
+            //     {
+            //         "id" : 1,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "10% descuento"
+            //     },
+            //     {
+            //         "id" : 2,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "30% descuento"
+            //     },
+            //     {
+            //         "id" : 3,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "40% descuento"
+            //     }
+            // ]';
 
-        return response()->json(json_decode($OffertProduct));
+            $OffertProduct = DB::select("select * from  view_descuento");
+
+        // return response()->json(json_decode($OffertProduct));
+        return response()->json($OffertProduct, 200);
 
     }
 }
