@@ -8,76 +8,71 @@ use Illuminate\Support\Facades\DB;
 class product_controller extends Controller
 {
     //
-    function index()
+    function index(Request $r)
     {
         
-        // $name             = 'nombre del producto';
-        // $shortDescription = 'breve descripcion';
-        // $description      = 'descripcion completa';
-        // $images             = '[
-        //                         {
-        //                             "src"    : "images/slider4.jpg"
-        //                         },
-        //                         {
-        //                             "src"    : "images/slider2.jpg"
-        //                         },
-        //                         {
-        //                             "src"    : "images/slider3.jpg"
-        //                         },
-        //                         {
-        //                             "src"    : "images/slider1.jpg"
-        //                         }
-        //                     ]';
-        // $price            = '50.00';
-        // $discount         = '25.00';
-        // $countReview      = '50';
-        // $review           = '[
-        //                         {
-        //                             "name"    : "pedro perez",
-        //                             "avatar": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-        //                             "comment"    : "buenisimo",
-        //                             "puntation" : 2
-        //                         },
-        //                         {
-        //                             "name"    : "sandra perez",
-        //                             "avatar": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-        //                             "comment"    : "bueno",
-        //                             "puntation" : 1
-        //                         }
-        //                     ]';
-        // $puntation        = 0;
-        // $materials        = 'materiales';
+        $images             = '[
+                                {
+                                    "src"    : "http://'.$_SERVER['HTTP_HOST'].'/images/slider4.jpg"
+                                },
+                                {
+                                    "src"    : "http://'.$_SERVER['HTTP_HOST'].'/images/slider2.jpg"
+                                },
+                                {
+                                    "src"    : "http://'.$_SERVER['HTTP_HOST'].'/images/slider3.jpg"
+                                },
+                                {
+                                    "src"    : "http://'.$_SERVER['HTTP_HOST'].'/images/slider1.jpg"
+                                }
+                            ]';
 
         // $images             = 
         $colum1 = '"productCode"';
-        $reviewpunt = DB::select("select * from  view_reviewpuntuacion where ".$colum1." = 'PRD-001'")[0];
-        $countReview      = $reviewpunt->countreview;
-        $review           = DB::select("select * from  view_review where code = 'PRD-001'");
-        $puntation        = $reviewpunt->puntation/$reviewpunt->countreview;
-        $productData = DB::select("select * from  view_productos where code = 'PRD-001'")[0];
-        return response()->json([$productData,$review,$countReview,$puntation], 200);
-        // return response()->json(, 200);
-        // return response()->json([
-        //     'name'             => $name,
-        //     'shortDescription' => $shortDescription,
-        //     'description'      => $description,
-        //     'price'            => $price ,
-        //     'images'           => json_decode($images),
-        //     'discount'         => $discount,
-        //     'countReview'      => $countReview,
-        //     'review'           => json_decode($review),
-        //     'puntation'        => $puntation,
-        //     'materials'        => $materials,
-        // ]);
+        $productData = DB::select("select * from  view_productos where code = '".$r->productCode."'")[0];
+        
+        if(count($reviewpunt = DB::select("select * from  view_reviewpuntuacion where ".$colum1." = '".$r->productCode."'")) >= 1){
+            $review           = DB::select("select * from  view_review where code = '".$r->productCode."'");
+            $countReview      = $reviewpunt[0]->countreview;
+            $puntation        = $reviewpunt[0]->puntation/$countReview;
+        }else{
+            $review      = null;
+            $reviewpunt  = null;
+            $countReview = null;
+            $puntation   = null;
+        }
+        
+        
+        
+        return response()->json([
+            'name'             => $productData->name,
+            'shortDescription' => $productData->shortdescription,
+            'description'      => $productData->description,
+            'price'            => $productData->price ,
+            'images'           => json_decode($images),
+            'discount'         => $productData->discount,
+            'countReview'      => $countReview,
+            // 'review'           => json_decode($review),
+            'puntation'        => $puntation,
+            'materials'        => $productData->materials,
+        ]);
     }
 
     function productSearch(){
-            $productSearch = DB::select("select * from  view_productosbuscar");
+            $productSearch = DB::select("select * from  view_productosbuscar order by code desc");
 
             return response()->json($productSearch, 200);
 
     }
+
+    function productSearchHome(){
+            $productSearch = DB::select("select * from  view_productosbuscar limit 3");
+
+            return response()->json($productSearch, 200);
+
+    }
+    
     function OffertProduct(){
+<<<<<<< HEAD
             // $OffertProduct = '[
             //     {
             //         "id" : 1,
@@ -95,6 +90,22 @@ class product_controller extends Controller
             //         "message" : "40% descuento"
             //     }
             // ]';
+=======
+            $OffertProduct = '[
+                {
+                    "id" : 1,
+                    "images" : "images/slider1.jpg"
+                },
+                {
+                    "id" : 2,
+                    "images" : "images/slider2.jpg"
+                },
+                {
+                    "id" : 3,
+                    "images" : "images/slider3.jpg"
+                }
+            ]';
+>>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
 
             $OffertProduct = DB::select("select * from  view_descuento");
 

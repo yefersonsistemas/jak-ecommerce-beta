@@ -2,7 +2,7 @@
 
 -- DROP VIEW public.view_reviewpuntuacion;
 
-CREATE OR REPLACE VIEW public.view_reviewpuntuacion AS 
+CREATE OR REPLACE VIEW public.view_reviewpuntuacion AS
  SELECT count(tbl_review.id) AS countreview,
     sum(tbl_review.puntuation) AS puntation,
     tbl_review."productCode"

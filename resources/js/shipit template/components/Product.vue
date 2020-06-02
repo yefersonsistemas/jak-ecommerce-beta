@@ -6,7 +6,7 @@
           <v-carousel>
             <v-carousel-item v-for="(item, i) in productData.images"
                     :key="i"
-              :src="item.src"
+                    :src="item.src"
             >
             </v-carousel-item>
 
@@ -16,24 +16,25 @@
           <div class="pl-6">
             <p class="display-1 mb-0">{{productData.name}}</p>
             <v-card-actions class="pa-0">
-              <p class="headline font-weight-light pt-3">${{productData.discount}} <del style="" class="subtitle-1 font-weight-thin">${{productData.price}}</del></p>
+              <p v-if="productData.discount !== null" class="headline font-weight-light pt-3">${{productData.discount}} <del style="" class="subtitle-1 font-weight-thin">${{productData.price}}</del></p>
+              <p v-else class="headline font-weight-light pt-3">${{productData.price}}</p>
               <v-spacer></v-spacer>
-              <v-rating v-model="productData.puntation" full-icon="mdi-heart"
+              <!-- <v-rating v-model="productData.puntation" full-icon="mdi-heart"
       half-icon="mdi-heart-half-full" empty-icon="mdi-heart-outline" class="" background-color="grey lighten-1"
                       color="red lighten-3" dense></v-rating>
-              <span class="body-2	font-weight-thin">{{ productData.countReview}} REVIEWS</span>
+              <span class="body-2	font-weight-thin">{{ productData.countReview}} REVIEWS</span> -->
             </v-card-actions>
             <p class="subtitle-1 font-weight-thin">
               {{productData.shortDescription}}
             </p>
-            <p class="title">SIZE</p>
+            <!-- <p class="title">SIZE</p>
             <v-radio-group v-model="row" row>
               <v-radio label="XS" value="XS"></v-radio>
               <v-radio label="S" value="s"></v-radio>
               <v-radio label="M" value="m"></v-radio>
               <v-radio label="L" value="l"></v-radio>
               <v-radio label="XL" value="xl"></v-radio>
-            </v-radio-group>
+            </v-radio-group> -->
             <p class="title">ITEMS</p>
 
             <v-text-field
@@ -43,7 +44,7 @@
                 dense
             ></v-text-field>
             <v-btn class="primary white--text" outlined tile dense><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
-            <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>
+            <!-- <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn> -->
 
           </div>
 
@@ -55,7 +56,7 @@
           <v-tabs>
             <v-tab >Description</v-tab>
             <v-tab >Materials</v-tab>
-            <v-tab>REVIEWS</v-tab>
+            <!-- <v-tab>REVIEWS</v-tab> -->
             <v-tab-item>
               <p class="pt-10 subtitle-1 font-weight-thin">
                {{productData.description}}
@@ -66,7 +67,7 @@
                 {{productData.materials}}
               </p>
             </v-tab-item>
-            <v-tab-item>
+            <!-- <v-tab-item>
               <v-list
                 three-line="true"
                 avatar="true"
@@ -83,14 +84,14 @@
                     <v-list-item-content>
                       <v-list-item-title v-html="item.name"></v-list-item-title>
                       <v-rating v-model="item.puntation" full-icon="mdi-heart"
-      half-icon="mdi-heart-half-full" empty-icon="mdi-heart-outline" class="" background-color="grey lighten-1"
+                                half-icon="mdi-heart-half-full" empty-icon="mdi-heart-outline" class="" background-color="grey lighten-1"
                       color="red lighten-3" dense></v-rating>
                       <v-list-item-subtitle v-html="item.comment"></v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>
               </v-list>
-            </v-tab-item>
+            </v-tab-item> -->
           </v-tabs>
           <v-card-text
             class="pa-0 pt-4"
@@ -307,7 +308,9 @@
 </template>
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
+
     export default {
+      props: ['codeProduct'],
         data: () => ({
         }),
         computed:{
@@ -318,7 +321,7 @@ import { mapState, mapMutations, mapActions } from 'vuex'
           ...mapActions(['getProductData'])
         },
         created() {
-          this.getProductData()
+          this.getProductData(this.codeProduct)
         },
     }
 </script>

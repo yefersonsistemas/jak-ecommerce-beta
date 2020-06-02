@@ -22,4 +22,12 @@ class view_controller extends Controller
             'title' => $title
         ]);
     }
+
+    function test ()
+    {
+        $title = 'template';
+        return view('test',[
+            'title' => $title
+        ]);
+    }
 }

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/js/shipit template/components/Home'
-import Shop from '@/js/shipit template/components/Shop'
-import Product from '@/js/shipit template/components/Product'
-import Blog from '@/js/shipit template/components/Blog'
-import Post from '@/js/shipit template/components/Post'
-import Cart from '@/js/shipit template/components/Cart'
-import Layout from '@/js/shipit template/components/Layout'
+import Home from '@shipit/components/Home'
+import search from '@shipit/components/search'
+import Product from '@shipit/components/Product'
+import Blog from '@shipit/components/Blog'
+import about_us from '@shipit/components/about-us'
+import Cart from '@shipit/components/Cart'
+import Layout from '@shipit/components/Layout'
 
 Vue.use(Router)
 
@@ -20,13 +20,19 @@ export default new Router({
                     name: 'Home'
                 },
                 {
-                    path: '/shop',
-                    component: Shop,
-                    name: 'Shop'
+                    path: '/search',
+                    component: search,
+                    name: 'search'
                 },
                 {
                     path: '/product',
                     component: Product,
+                    name: 'ProductNoExist'
+                },
+                {
+                    path: '/product/:codeProduct',
+                    component: Product,
+                    props: true,
                     name: 'Product'
                 },
                 {
@@ -35,9 +41,9 @@ export default new Router({
                     name: 'Blog'
                 },
                 {
-                    path: '/post',
-                    component: Post,
-                    name: 'Post'
+                    path: '/about-us',
+                    component: about_us,
+                    name: 'about-us'
                 },
                 {
                     path: '/cart',

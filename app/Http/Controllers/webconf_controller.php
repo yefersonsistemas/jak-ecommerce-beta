@@ -9,8 +9,8 @@ class webconf_controller extends Controller
     //
     function index ()
     {
-        $name = 'jak solutions';
-        $shortName = "jak";
+        $name = 'Jak Solutions';
+        $shortName = "Jak";
         return response()->json([
             'name' => $name,
             'shortName' => $shortName
@@ -98,5 +98,28 @@ class webconf_controller extends Controller
         ]';
         return response()->json(json_decode($shopItem)
         );
+    }
+
+    function aboutus ()
+    {
+        $title             = 'jak solutions';
+        $slogan            = "producir, hacer, crear, inventar,";
+        $imgFirstBanner    = "https://picsum.photos/1920/1080?random";
+        $titleFirstPost    = "mision";
+        $contentFirstPost  = "somo una gran empresa";
+        $imgSecondBanner   = "https://picsum.photos/1920/1080?random";
+        $titleSecondPost   = "vision";
+        $contentSecondPost = "llegaremos lejos";
+
+        return response()->json([
+            'title'             => $title,
+            'slogan'            => $slogan,
+            'imgFirstBanner'    => $imgFirstBanner,
+            'titleFirstPost'    => $titleFirstPost,
+            'contentFirstPost'  => $contentFirstPost,
+            'imgSecondBanner'   => $imgSecondBanner,
+            'titleSecondPost'   => $titleSecondPost,
+            'contentSecondPost' => $contentSecondPost
+        ]);
     }
 }

@@ -2,9 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
-import vuetify from '@/js/shipit template/plugins/vuetify' // path to vuetify export
-import router from '@/js/shipit template/router'
-import App from '@/js/shipit template/App'
+import vuetify from '@shipit/plugins/vuetify' // path to vuetify export
+import router from "@shipit/router";
+import App from "@shipit/App";
 import Axios from 'axios'
 // import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
@@ -17,7 +17,13 @@ const store = new Vuex.Store({
         shopItem: {},
         productSearch: {},
         offertProduct: [],
+<<<<<<< HEAD
         homeData: {},
+=======
+        productSearchHome: {},
+        aboutusDATA: [],
+        cartProduct: [],
+>>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
     },
     mutations: {
         setWebData(state, objectWebData) {
@@ -29,14 +35,30 @@ const store = new Vuex.Store({
         setProductSearch(state, objectProductSearch) {
             state.productSearch = objectProductSearch
         },
+        setProductSearchHome(state, objectProductSearchHome) {
+            state.productSearchHome = objectProductSearchHome
+        },
         setShopItem(state, objectShopData) {
             state.shopItem = objectShopData
         },
         setOffertProduct(state, objectOffertProduct) {
             state.offertProduct = objectOffertProduct
         },
+<<<<<<< HEAD
         setHomeData(state, objectHomeData) {
             state.homeData = objectHomeData
+=======
+        setAboutus(state, objectAboutus) {
+            state.aboutusDATA = objectAboutus
+        },
+        setCartProduct(state, objectProductCart, push = false) {
+            if (!push) {
+                state.cartProduct = objectProductCart
+            } else {
+                state.cartProduct.push(objectProductCart)
+            }
+
+>>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
         },
     },
     actions: {
@@ -56,8 +78,10 @@ const store = new Vuex.Store({
         },
         async getProductData({
             commit
-        }) {
-            await Axios.post("/getProductData").then(response => {
+        }, $productCode) {
+            await Axios.post("/getProductData", {
+                productCode: $productCode
+            }).then(response => {
                 commit('setProductData', response.data)
             })
         },
@@ -68,6 +92,13 @@ const store = new Vuex.Store({
                 commit('setProductSearch', response.data)
             })
         },
+        async getProductSearchHome({
+            commit
+        }) {
+            await Axios.post("/getProductSearchHome").then(response => {
+                commit('setProductSearchHome', response.data)
+            })
+        },
         async getOffertProduct({
             commit
         }) {
@@ -75,6 +106,7 @@ const store = new Vuex.Store({
                 commit('setOffertProduct', response.data)
             })
         },
+<<<<<<< HEAD
         async getHomeData({
             commit
         }) {
@@ -82,6 +114,35 @@ const store = new Vuex.Store({
                 commit('setHomeData', response.data)
             })
         }
+=======
+        async getAboutus({
+            commit
+        }) {
+            await Axios.post("/getAboutus").then(response => {
+                commit('setAboutus', response.data)
+            })
+        },
+        async getProductsCart({
+            commit
+        }) {
+
+            await Axios.post("/getProductsCart").then(response => {
+                console.log(response.data)
+                commit('setCartProduct', response.data)
+            })
+
+        },
+        addToCart({
+            commit
+        }, productsCart) {
+            Axios.post("/addProdutToCart", {
+                productsCart: productsCart
+            }).then(response => {
+                store.dispatch('getProductsCart')
+            })
+
+        },
+>>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
     }
 })
 

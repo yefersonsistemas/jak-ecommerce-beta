@@ -17,11 +17,23 @@ Route::post('/getWebData', 'webconf_controller@index');
 
 Route::post('/getShopItem', 'webconf_controller@shopItem');
 
+Route::post('/getAboutus', 'webconf_controller@aboutus');
+
 Route::post('/getProductData', 'product_controller@index');
 
 Route::post('/getProductSearch', 'product_controller@productSearch');
 
+Route::post('/getProductSearchHome', 'product_controller@productSearchHome');
+
 Route::post('/getOffertProduct', 'product_controller@OffertProduct');
+
+Route::post('/addProdutToCart', 'cart_controller@addToCart');
+
+Route::get('/getaddProdutToCart', 'cart_controller@addToCart');
+
+Route::post('/getProductsCart', 'cart_controller@getProductCart');
+
+Route::get('/test', 'view_controller@test');
 
 Route::get('/panel', 'view_controller@panel');
 
