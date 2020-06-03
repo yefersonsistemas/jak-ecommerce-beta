@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class webconf_controller extends Controller
 {
     //
     function index ()
     {
-        $name = 'Jak Solutions';
-        $shortName = "Jak";
+        $name = 'jak solutions';
+        $shortName = "jak";
         return response()->json([
             'name' => $name,
             'shortName' => $shortName
@@ -18,86 +19,37 @@ class webconf_controller extends Controller
     }
 
     function shopItem(){
-        $shopItem =  '[
+
+        $class = DB::select("select * from  view_productosclass");
+        $colum1 = '"codeclass"';
+        $auxclass = [];
+        foreach ($class as $key =>  $value) {
+            if(count($type =  DB::select("select * from  view_productostype where ".$colum1." = '".$value->code."'")) >= 1)
             {
-                "name" : "T-Shirts",
-                "code" : "shop-001",
-                "fatherCode": null,
-                "children" : [
-                    {
-                        "name" : "T-Shirts",
-                        "code" : "shop-007",
-                        "fatherCode": "shop-001",
-                        "children" : []
-                    },
-                    {
-                        "name" : "Jackets",
-                        "code" : "shop-008",
-                        "fatherCode": "shop-001",
-                        "children" : []
-                    }
-                ]
-            },
-            {
-                "name" : "Jackets",
-                "code" : "shop-002",
-                "fatherCode": null,
-                "children" : [
-                    {
-                        "name" : "Shirts",
-                        "code" : "shop-009",
-                        "fatherCode": "shop-002",
-                        "children" : []
-                    },
-                    {
-                        "name" : "Jeans",
-                        "code" : "shop-010",
-                        "fatherCode": "shop-002",
-                        "children" : []
-                    }
-                ]
-            },
-            {
-                "name" : "Shirts",
-                "code" : "shop-003",
-                "fatherCode": null,
-                "children" : [
-                    {
-                        "name" : "Shoes",
-                        "code" : "shop-011",
-                        "fatherCode": "shop-003",
-                        "children" : []
-                    }
-                ]
-            },
-            {
-                "name" : "Jeans",
-                "code" : "shop-004",
-                "fatherCode": null,
-                "children" : [
-                    {
-                        "name" : "Nails",
-                        "code" : "shop-012",
-                        "fatherCode": "shop-004",
-                        "children" : []
-                    }
-                ]
-            },
-            {
-                "name" : "Shoes",
-                "code" : "shop-005",
-                "fatherCode": null,
-                "children" : []
-            },
-            {
-                "name" : "Nails",
-                "code" : "shop-005",
-                "fatherCode": null,
-                "children" : []
+                $type =  DB::select("select * from view_productostype where ".$colum1." = '".$value->code."'");
+                
+                $auxchildren = '{
+                                "id": "'.$value->code.'",
+                                "name": "'. $value->name .'",
+                                "children" : '.json_encode($type).'}';
+                $children = json_decode($auxchildren);
+                // return $aux;
+                array_push($auxclass,$children);
+                
             }
-        ]';
-        return response()->json(json_decode($shopItem)
-        );
+            else
+            {
+                $auxchildren = '{
+                    "id": "'.$value->code.'",
+                    "name": "'. $value->name .'",
+                    "children" : []}';
+                $children = json_decode($auxchildren);
+                // return $aux;
+                array_push($auxclass,$children);
+            }
+        }
+        $class = $auxclass;
+        return response()->json($class);
     }
 
     function aboutus ()
