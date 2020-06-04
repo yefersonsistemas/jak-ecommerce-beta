@@ -1,4 +1,6 @@
-CREATE OR REPLACE VIEW public.view_productostype AS 
- SELECT "tbl_poductsType".code AS codetipo,
-    "tbl_poductsType".name AS nametipo
-   FROM "tbl_poductsType"
+CREATE OR REPLACE VIEW view_productostype AS
+SELECT "tbl_productosClass".code AS codeclass,
+   "tbl_poductsType".code,
+   "tbl_poductsType".name
+FROM "tbl_poductsType"
+   JOIN "tbl_productosClass" ON "tbl_productosClass".code::text = "tbl_poductsType"."classCode"::text;
