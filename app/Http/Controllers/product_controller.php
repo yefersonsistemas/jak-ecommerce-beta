@@ -70,6 +70,25 @@ class product_controller extends Controller
     }
     
     function OffertProduct(){
+<<<<<<< HEAD
+            // $OffertProduct = '[
+            //     {
+            //         "id" : 1,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "10% descuento"
+            //     },
+            //     {
+            //         "id" : 2,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "30% descuento"
+            //     },
+            //     {
+            //         "id" : 3,
+            //         "images" : "https://picsum.photos/1920/1080?random",
+            //         "message" : "40% descuento"
+            //     }
+            // ]';
+=======
             $OffertProduct = '[
                 {
                     "id" : 1,
@@ -84,8 +103,12 @@ class product_controller extends Controller
                     "images" : "images/slider3.jpg"
                 }
             ]';
+>>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
 
-        return response()->json(json_decode($OffertProduct));
+            $OffertProduct = DB::select("select * from  view_descuento");
+
+        // return response()->json(json_decode($OffertProduct));
+        return response()->json($OffertProduct, 200);
 
     }
 }

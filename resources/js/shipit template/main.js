@@ -17,6 +17,7 @@ const store = new Vuex.Store({
         shopItem: {},
         productSearch: {},
         offertProduct: [],
+        homeData: {},
         productSearchHome: {},
         aboutusDATA: [],
         cartProduct: [],
@@ -40,6 +41,9 @@ const store = new Vuex.Store({
         setOffertProduct(state, objectOffertProduct) {
             state.offertProduct = objectOffertProduct
         },
+        setHomeData(state, objectHomeData) {
+            state.homeData = objectHomeData
+        },
         setAboutus(state, objectAboutus) {
             state.aboutusDATA = objectAboutus
         },
@@ -51,80 +55,88 @@ const store = new Vuex.Store({
             }
 
         },
-    },
-    actions: {
-        async getWebData({
-            commit
-        }) {
-            await Axios.post("/getWebData").then(response => {
-                commit('setWebData', response.data)
-            })
-        },
-        async getShopItem({
-            commit
-        }) {
-            await Axios.post("/getShopItem").then(response => {
-                commit('setShopItem', response.data)
-            })
-        },
-        async getProductData({
-            commit
-        }, $productCode) {
-            await Axios.post("/getProductData", {
-                productCode: $productCode
-            }).then(response => {
-                commit('setProductData', response.data)
-            })
-        },
-        async getProductSearch({
-            commit
-        }) {
-            await Axios.post("/getProductSearch").then(response => {
-                commit('setProductSearch', response.data)
-            })
-        },
-        async getProductSearchHome({
-            commit
-        }) {
-            await Axios.post("/getProductSearchHome").then(response => {
-                commit('setProductSearchHome', response.data)
-            })
-        },
-        async getOffertProduct({
-            commit
-        }) {
-            await Axios.post("/getOffertProduct").then(response => {
-                commit('setOffertProduct', response.data)
-            })
-        },
-        async getAboutus({
-            commit
-        }) {
-            await Axios.post("/getAboutus").then(response => {
-                commit('setAboutus', response.data)
-            })
-        },
-        async getProductsCart({
-            commit
-        }) {
-
-            await Axios.post("/getProductsCart").then(response => {
-                console.log(response.data)
-                commit('setCartProduct', response.data)
-            })
-
-        },
-        addToCart({
-            commit
-        }, productsCart) {
-            Axios.post("/addProdutToCart", {
-                productsCart: productsCart
-            }).then(response => {
-                store.dispatch('getProductsCart')
-            })
-
-        },
     }
+},
+actions: {
+    async getWebData({
+        commit
+    }) {
+        await Axios.post("/getWebData").then(response => {
+            commit('setWebData', response.data)
+        })
+    },
+    async getShopItem({
+        commit
+    }) {
+        await Axios.post("/getShopItem").then(response => {
+            commit('setShopItem', response.data)
+        })
+    },
+    async getProductData({
+        commit
+    }, $productCode) {
+        await Axios.post("/getProductData", {
+            productCode: $productCode
+        }).then(response => {
+            commit('setProductData', response.data)
+        })
+    },
+    async getProductSearch({
+        commit
+    }) {
+        await Axios.post("/getProductSearch").then(response => {
+            commit('setProductSearch', response.data)
+        })
+    },
+    async getProductSearchHome({
+        commit
+    }) {
+        await Axios.post("/getProductSearchHome").then(response => {
+            commit('setProductSearchHome', response.data)
+        })
+    },
+    async getOffertProduct({
+        commit
+    }) {
+        await Axios.post("/getOffertProduct").then(response => {
+            commit('setOffertProduct', response.data)
+        })
+    },
+    async getHomeData({
+        commit
+    }) {
+        await Axios.post("/getHomeData").then(response => {
+            commit('setHomeData', response.data)
+        })
+    },
+    async getAboutus({
+        commit
+    }) {
+        await Axios.post("/getAboutus").then(response => {
+            commit('setAboutus', response.data)
+        })
+    },
+    async getProductsCart({
+        commit
+    }) {
+
+        await Axios.post("/getProductsCart").then(response => {
+            console.log(response.data)
+            commit('setCartProduct', response.data)
+        })
+
+    },
+    addToCart({
+        commit
+    }, productsCart) {
+        Axios.post("/addProdutToCart", {
+            productsCart: productsCart
+        }).then(response => {
+            store.dispatch('getProductsCart')
+        })
+
+    },
+}
 })
 
 /* eslint-disable no-new */

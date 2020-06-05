@@ -19,11 +19,9 @@ class TblWebConfiguration extends Migration
             $table->string('codeCompany');
             $table->string('templateCode'); // codigo unico para bd template
             $table->string('title');
-            $table->string('redSocialCode');
             $table->boolean('delete')->nullable();
 
             $table->foreign('codeCompany')->references('code')->on('tbl_company');
-            $table->foreign('redSocialCode')->references('code')->on('tbl_redSocialCompany');
         });
     }
 

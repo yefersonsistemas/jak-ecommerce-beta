@@ -16,11 +16,15 @@ class TblCompany extends Migration
         Schema::create('tbl_company', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code')->unique();
-            $table->string('companyName');
-            $table->string('companyDirection');
+            $table->string('name');
+            $table->string('shortName');
+            $table->string('direction');
             $table->string('numPhone');
             $table->string('email');
             $table->string('skype');
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('instagram');
         });
     }
 
