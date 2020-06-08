@@ -1,13 +1,11 @@
-﻿-- Function: public.agregarproductos(character varying, character varying, character varying, character varying, character varying, double precision, integer)
-
--- DROP FUNCTION public.agregarproductos(character varying, character varying, character varying, character varying, character varying, double precision, integer);
-
+﻿
 CREATE OR REPLACE FUNCTION public.agregarproductos(
     IN nombre character varying,
     IN imagen character varying,
     IN descripcion character varying,
     IN cortadescripcion character varying,
     IN tipocodigo character varying,
+    IN materiales character varying,
     IN precio double precision,
     IN existencia integer,
     OUT codigo character varying)
@@ -21,8 +19,8 @@ BEGIN
 
 	select  codigoGenerado into AuxCode from generarcodigo('PRODUCT');
 	WITH auxIn AS (
-	insert into tbl_productos (code, name, "imgSrc", descripcion, "shortDescripcion", "typeCode", "actualPrice", existenc) 
-	values(AuxCode, nombre, imagen, descripcion, cortadescripcion, tipocodigo, precio, existencia)
+	insert into tbl_productos (code, name, "imgSrc", descripcion, "shortDescripcion", "typeCode", materials, "actualPrice", existenc, "insertDate") 
+	values(AuxCode, nombre, imagen, descripcion, cortadescripcion, tipocodigo, materiales, precio, existencia, CURRENT_TIMESTAMP)
 	RETURNING code
 	)
 	
@@ -40,5 +38,3 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION public.agregarproductos(character varying, character varying, character varying, character varying, character varying, double precision, integer)
-  OWNER TO postgres;

@@ -14,13 +14,13 @@ class TblBanners extends Migration
     public function up()
     {
         Schema::create('tbl_banners', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code')->unique();
-            $table->string('codeHome');
+            $table->bigIncrements('id')->unique();
+            $table->integer('idHome');
             $table->string('imgSrc');
+            $table->string('description');
             
 
-            $table->foreign('codeHome')->references('code')->on('tbl_home');
+            $table->foreign('idHome')->references('id')->on('tbl_home');
         });
     }
 

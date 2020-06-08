@@ -14,8 +14,7 @@ class TblHome extends Migration
     public function up()
     {
         Schema::create('tbl_home', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code')->unique();
+            $table->bigIncrements('id')->unique();
             $table->string('webConfigCode');
             $table->string('imgNewArrival');
             $table->string('imgTopPicks');

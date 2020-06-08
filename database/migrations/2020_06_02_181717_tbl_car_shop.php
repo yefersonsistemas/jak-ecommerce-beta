@@ -17,6 +17,7 @@ class TblCarShop extends Migration
             $table->string('ip');
             $table->integer('cantidad');
             $table->string('codeProduct');
+            $table->timestamp('dateCreation');
 
             $table->foreign('codeProduct')->references('code')->on('tbl_productos');
 

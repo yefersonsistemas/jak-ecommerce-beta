@@ -24,6 +24,8 @@ class TblProductos extends Migration
                 $table->string('materials');
                 $table->float('actualPrice');
                 $table->integer('existenc');
+                $table->timestamp('insertDate')->nullable();
+                $table->timestamp('upDate')->nullable();
 
                 $table->foreign('typeCode')->references('code')->on('tbl_poductsType');
 

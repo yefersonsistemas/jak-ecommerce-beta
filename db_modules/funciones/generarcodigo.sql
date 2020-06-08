@@ -9,7 +9,7 @@ $BODY$
     stringCodigo character varying;
     
     BEGIN
-		--PRODUCTO--
+		
 		if codigoSwiche = 'PRODUCT' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_productos" ;
 		
@@ -17,12 +17,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'PRD-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--ORDENES--
 		if codigoSwiche = 'ORDER' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_order" ;
 		
@@ -30,12 +29,11 @@ $BODY$
 
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'ORD-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--TIPO DE PRODUCTO--
 		if codigoSwiche = 'PRTY' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_poductsType" ;
 		
@@ -48,7 +46,6 @@ $BODY$
 			codigoGenerado := 'PRTY-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--PRODUCTO CLASE--
 		if codigoSwiche = 'PRDCLASS' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_productosClass" ;
 		
@@ -61,20 +58,6 @@ $BODY$
 			codigoGenerado := 'CLASS-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--REDES SOCIALES--
-		if codigoSwiche = 'REDSOCIAL' then
-			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_redSocialCompany" ;
-		
-			numeroCodigo = numeroCodigo + 1;
-		
-			stringCodigo = numeroCodigo::varchar(255);
-		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
-
-			codigoGenerado := 'RDS-'|| codigoAuxiliar ||'';
-			return;
-		end if;
-		--REVISIÓN--
 		if codigoSwiche = 'REW' then
 			SELECT COUNT(1) INTO numeroCodigo FROM tbl_review ;
 		
@@ -82,12 +65,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'REW-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--VENTAS--
 		if codigoSwiche = 'SAL' then
 			SELECT COUNT(1) INTO numeroCodigo FROM tbl_sales ;
 		
@@ -95,12 +77,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'SAL-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--CONFIGURACION WEB--
 		if codigoSwiche = 'WEB' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_webConfiguration" ;
 		
@@ -113,20 +94,6 @@ $BODY$
 			codigoGenerado := 'WEB-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--INVENTARIO--
-		if codigoSwiche = 'INV' then
-			SELECT COUNT(1) INTO numeroCodigo FROM tbl_inventory ;
-		
-			numeroCodigo = numeroCodigo + 1;
-		
-			stringCodigo = numeroCodigo::varchar(255);
-		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
-
-			codigoGenerado := 'INV-'|| codigoAuxiliar ||'';
-			return;
-		end if;
-		--PROMOCIONES--
 		if codigoSwiche = 'PRO' then
 			SELECT COUNT(1) INTO numeroCodigo FROM tbl_promotion ;
 		
@@ -134,38 +101,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'PRO-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--ACERCA DE--
-		if codigoSwiche = 'ABOUT' then
-			SELECT COUNT(1) INTO numeroCodigo FROM tbl_about ;
-		
-			numeroCodigo = numeroCodigo + 1;
-		
-			stringCodigo = numeroCodigo::varchar(255);
-		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
-
-			codigoGenerado := 'AB-'|| codigoAuxiliar ||'';
-			return;
-		end if;
-		--BANNERS--
-		if codigoSwiche = 'BANN' then
-			SELECT COUNT(1) INTO numeroCodigo FROM tbl_banners ;
-		
-			numeroCodigo = numeroCodigo + 1;
-		
-			stringCodigo = numeroCodigo::varchar(255);
-		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
-
-			codigoGenerado := 'BANN-'|| codigoAuxiliar ||'';
-			return;
-		end if;
-		--CARRITO DE COMPRAS--
 		if codigoSwiche = 'CAR' then
 			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_carShop" ;
 		
@@ -173,12 +113,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('00000' || numeroCodigo ||'',length(stringCodigo),6);
 
 			codigoGenerado := 'CAR-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--COMPAÑIAS--
 		if codigoSwiche = 'COMP' then
 			SELECT COUNT(1) INTO numeroCodigo FROM tbl_company ;
 		
@@ -186,25 +125,11 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'COM-'|| codigoAuxiliar ||'';
 			return;
 		end if;
-		--INICIO--
-		if codigoSwiche = 'HOME' then
-			SELECT COUNT(1) INTO numeroCodigo FROM tbl_home ;
-		
-			numeroCodigo = numeroCodigo + 1;
-		
-			stringCodigo = numeroCodigo::varchar(255);
-		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
-
-			codigoGenerado := 'HOME-'|| codigoAuxiliar ||'';
-			return;
-		end if;
-		--IMAGENES--
 		if codigoSwiche = 'IMG' then
 			SELECT COUNT(1) INTO numeroCodigo FROM tbl_image ;
 		
@@ -212,7 +137,7 @@ $BODY$
 		
 			stringCodigo = numeroCodigo::varchar(255);
 		
-			codigoAuxiliar :=  substring('000' || numeroCodigo ||'',length(stringCodigo),4);
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'IMG-'|| codigoAuxiliar ||'';
 			return;

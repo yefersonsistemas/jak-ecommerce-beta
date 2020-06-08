@@ -14,8 +14,7 @@ class TblAbout extends Migration
     public function up()
     {
         Schema::create('tbl_about', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('code')->unique();
+            $table->bigIncrements('id')->unique();
             $table->string('webConfigCode');
             $table->string('slogan');
             $table->string('title');
