@@ -2410,11 +2410,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       slides: ["First", "Second", "Third", "Fourth", "Fifth"]
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["offertProduct", "productSearchHome"])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getOffertProduct", "getProductSearchHome"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["homeData", "productSearchHome"])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getHomeData", "getProductSearchHome"])),
   created: function created() {
-    this.getOffertProduct();
-    this.getProductSearchHome();
+    this.getHomeData();
   }
 });
 
@@ -2587,14 +2586,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "addToCart"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData"])),
   created: function created() {
     this.getWebData();
-    this.addToCart({
-      name: "hola",
-      id: 2,
-      quantity: 1
-    });
   }
 });
 
@@ -5958,7 +5952,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "pl-4 pr-4 row" },
-        _vm._l(_vm.productSearchHome, function(pro) {
+        _vm._l(_vm.homeData.productsCategory, function(pro) {
           return _c(
             "div",
             { staticClass: "col-md-4 col-sm-4 col-xs-12" },
@@ -6556,7 +6550,7 @@ var render = function() {
           _c(
             "v-card",
             {
-              staticClass: "secondary white--text text-center ",
+              staticClass: "secondary white--text text-center",
               attrs: { flat: "", tile: "", width: "100%" }
             },
             [
@@ -66839,6 +66833,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     shopItem: {},
     productSearch: {},
     offertProduct: [],
+    homeData: {},
     productSearchHome: {},
     aboutusDATA: [],
     cartProduct: []
@@ -66861,6 +66856,9 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     },
     setOffertProduct: function setOffertProduct(state, objectOffertProduct) {
       state.offertProduct = objectOffertProduct;
+    },
+    setHomeData: function setHomeData(state, objectHomeData) {
+      state.homeData = objectHomeData;
     },
     setAboutus: function setAboutus(state, objectAboutus) {
       state.aboutusDATA = objectAboutus;
@@ -67004,7 +67002,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         }, _callee6);
       }))();
     },
-    getAboutus: function getAboutus(_ref7) {
+    getHomeData: function getHomeData(_ref7) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
         var commit;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
@@ -67013,8 +67011,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
               case 0:
                 commit = _ref7.commit;
                 _context7.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getAboutus").then(function (response) {
-                  commit('setAboutus', response.data);
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getHomeData").then(function (response) {
+                  commit('setHomeData', response.data);
                 });
 
               case 3:
@@ -67025,7 +67023,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         }, _callee7);
       }))();
     },
-    getProductsCart: function getProductsCart(_ref8) {
+    getAboutus: function getAboutus(_ref8) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
         var commit;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
@@ -67034,9 +67032,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
               case 0:
                 commit = _ref8.commit;
                 _context8.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductsCart").then(function (response) {
-                  console.log(response.data);
-                  commit('setCartProduct', response.data);
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getAboutus").then(function (response) {
+                  commit('setAboutus', response.data);
                 });
 
               case 3:
@@ -67047,8 +67044,29 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         }, _callee8);
       }))();
     },
-    addToCart: function addToCart(_ref9, productsCart) {
-      var commit = _ref9.commit;
+    getProductsCart: function getProductsCart(_ref9) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                commit = _ref9.commit;
+                _context9.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/getProductsCart").then(function (response) {
+                  commit('setCartProduct', response.data);
+                });
+
+              case 3:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    addToCart: function addToCart(_ref10, productsCart) {
+      var commit = _ref10.commit;
       axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/addProdutToCart", {
         productsCart: productsCart
       }).then(function (response) {
@@ -67129,7 +67147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shipit_components_search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shipit/components/search */ "./resources/js/shipit template/components/search.vue");
 /* harmony import */ var _shipit_components_Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shipit/components/Product */ "./resources/js/shipit template/components/Product.vue");
 /* harmony import */ var _shipit_components_Blog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shipit/components/Blog */ "./resources/js/shipit template/components/Blog.vue");
-/* harmony import */ var _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shipit/components/about-us */ "./resources/js/shipit template/components/about-us.vue");
+/* harmony import */ var _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @shipit/components/about-us */ "./resources/js/shipit template/components/about-us.vue");
 /* harmony import */ var _shipit_components_Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @shipit/components/Cart */ "./resources/js/shipit template/components/Cart.vue");
 /* harmony import */ var _shipit_components_Layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @shipit/components/Layout */ "./resources/js/shipit template/components/Layout.vue");
 
@@ -67169,7 +67187,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       name: 'Blog'
     }, {
       path: '/about-us',
-      component: _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_6__["default"],
+      component: _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_9__["default"],
       name: 'about-us'
     }, {
       path: '/cart',
@@ -67189,7 +67207,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
+module.exports = __webpack_require__(/*! D:\proyectos\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
 
 
 /***/ })

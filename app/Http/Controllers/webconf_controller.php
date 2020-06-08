@@ -21,7 +21,6 @@ class webconf_controller extends Controller
     function shopItem(){
 
         $class = DB::select("select * from  view_productosclass");
-<<<<<<< HEAD
         $colum1 = '"codeclass"';
         $auxclass = [];
         foreach ($class as $key =>  $value) {
@@ -32,19 +31,6 @@ class webconf_controller extends Controller
                 $auxchildren = '{
                                 "id": "'.$value->code.'",
                                 "name": "'. $value->name .'",
-=======
-        $colum1 = '"code"';
-        $auxclass = [];
-        foreach ($class as $key =>  $value) {
-            // return $value;
-            if(count($type =  DB::select("select * from  view_productostype where code = '".$value->code."'")) >= 1)
-            {
-                $type =  DB::select("select * from view_productostype where code = '".$value->code."'");
-                
-                $auxchildren = '{
-                                "code": "'.$value->code.'",
-                                "monbreclass": "'. $value->monbreclass .'",
->>>>>>> remotes/origin/developer
                                 "children" : '.json_encode($type).'}';
                 $children = json_decode($auxchildren);
                 // return $aux;
@@ -54,13 +40,8 @@ class webconf_controller extends Controller
             else
             {
                 $auxchildren = '{
-<<<<<<< HEAD
                     "id": "'.$value->code.'",
                     "name": "'. $value->name .'",
-=======
-                    "code": "'.$value->code.'",
-                    "monbreclass": "'. $value->monbreclass .'",
->>>>>>> remotes/origin/developer
                     "children" : []}';
                 $children = json_decode($auxchildren);
                 // return $aux;
@@ -69,7 +50,6 @@ class webconf_controller extends Controller
         }
         $class = $auxclass;
         return response()->json($class);
-<<<<<<< HEAD
     }
 
     function aboutus ()
@@ -93,7 +73,5 @@ class webconf_controller extends Controller
             'titleSecondPost'   => $titleSecondPost,
             'contentSecondPost' => $contentSecondPost
         ]);
-=======
->>>>>>> remotes/origin/developer
     }
 }

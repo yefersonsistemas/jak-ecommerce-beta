@@ -60,7 +60,7 @@
         <div class="pl-4 pr-4 row">
             <div
                 class="col-md-4 col-sm-4 col-xs-12"
-                v-for="pro in productSearchHome"
+                v-for="pro in homeData.productsCategory"
             >
                 <v-card outlined>
                     <v-img
@@ -277,14 +277,13 @@ export default {
         };
     },
     computed: {
-        ...mapState(["offertProduct", "productSearchHome"])
+        ...mapState(["homeData", "productSearchHome"])
     },
     methods: {
-        ...mapActions(["getOffertProduct", "getProductSearchHome"])
+        ...mapActions(["getHomeData", "getProductSearchHome"])
     },
     created() {
-        this.getOffertProduct();
-        this.getProductSearchHome();
+        this.getHomeData();
     }
 };
 </script>

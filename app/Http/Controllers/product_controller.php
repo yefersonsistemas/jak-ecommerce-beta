@@ -70,7 +70,6 @@ class product_controller extends Controller
     }
     
     function OffertProduct(){
-<<<<<<< HEAD
             // $OffertProduct = '[
             //     {
             //         "id" : 1,
@@ -88,22 +87,6 @@ class product_controller extends Controller
             //         "message" : "40% descuento"
             //     }
             // ]';
-=======
-            $OffertProduct = '[
-                {
-                    "id" : 1,
-                    "images" : "images/slider1.jpg"
-                },
-                {
-                    "id" : 2,
-                    "images" : "images/slider2.jpg"
-                },
-                {
-                    "id" : 3,
-                    "images" : "images/slider3.jpg"
-                }
-            ]';
->>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
 
             $OffertProduct = DB::select("select * from  view_descuento");
 
