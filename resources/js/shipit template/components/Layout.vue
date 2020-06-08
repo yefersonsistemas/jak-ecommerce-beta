@@ -16,8 +16,8 @@
                     gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
                 ></v-img>
             </template>
-            <v-toolbar-title style="margin-left: 5%">
-                <a href="/" class="white--text" style="text-decoration: none">
+            <v-toolbar-title style="margin-left: 5%;">
+                <a href="/" class="white--text" style="text-decoration: none;">
                     &nbsp;{{ WebData.shortName }}
                 </a>
             </v-toolbar-title>
@@ -56,7 +56,7 @@
                 flat
                 tile
                 width="100%"
-                class="secondary white--text text-center "
+                class="secondary white--text text-center"
             >
                 <v-card-text class="white--text">
                     <v-btn
@@ -142,26 +142,25 @@ export default {
                 "mdi-facebook",
                 "mdi-twitter",
                 "mdi-linkedin",
-                "mdi-instagram"
+                "mdi-instagram",
             ],
             drawer: null,
             items: [
                 { title: "Home", icon: "mdi-facebook" },
-                { title: "About", icon: "mdi-facebook" }
-            ]
+                { title: "About", icon: "mdi-facebook" },
+            ],
         };
     },
     computed: {
-        ...mapState(["WebData"])
+        ...mapState(["WebData"]),
     },
     methods: {
         ...mapMutations(["setCartProduct"]),
-        ...mapActions(["getWebData", "addToCart"])
+        ...mapActions(["getWebData"]),
     },
     created() {
         this.getWebData();
-        this.addToCart({ name: "hola", id: 2, quantity: 1 });
-    }
+    },
 };
 </script>
 <style>

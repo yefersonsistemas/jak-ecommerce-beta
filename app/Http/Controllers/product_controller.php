@@ -10,7 +10,7 @@ class product_controller extends Controller
     //
     function index(Request $r)
     {
-        
+
         $images             = '[
                                 {
                                     "src"    : "http://'.$_SERVER['HTTP_HOST'].'/images/slider4.jpg"
@@ -26,10 +26,10 @@ class product_controller extends Controller
                                 }
                             ]';
 
-        // $images             = 
+        // $images             =
         $colum1 = '"productCode"';
         $productData = DB::select("select * from  view_productos where code = '".$r->productCode."'")[0];
-        
+
         if(count($reviewpunt = DB::select("select * from  view_reviewpuntuacion where ".$colum1." = '".$r->productCode."'")) >= 1){
             $review           = DB::select("select * from  view_review where code = '".$r->productCode."'");
             $countReview      = $reviewpunt[0]->countreview;
@@ -40,16 +40,14 @@ class product_controller extends Controller
             $countReview = null;
             $puntation   = null;
         }
-        
-        
-        
+
         return response()->json([
             'name'             => $productData->name,
             'shortDescription' => $productData->shortdescription,
             'description'      => $productData->description,
             'price'            => $productData->price ,
             'images'           => json_decode($images),
-            'discount'         => $productData->discount,
+            // 'discount'         => $productData->discount,
             'countReview'      => $countReview,
             // 'review'           => json_decode($review),
             'puntation'        => $puntation,
@@ -72,7 +70,6 @@ class product_controller extends Controller
     }
     
     function OffertProduct(){
-<<<<<<< HEAD
             // $OffertProduct = '[
             //     {
             //         "id" : 1,
@@ -90,22 +87,6 @@ class product_controller extends Controller
             //         "message" : "40% descuento"
             //     }
             // ]';
-=======
-            $OffertProduct = '[
-                {
-                    "id" : 1,
-                    "images" : "images/slider1.jpg"
-                },
-                {
-                    "id" : 2,
-                    "images" : "images/slider2.jpg"
-                },
-                {
-                    "id" : 3,
-                    "images" : "images/slider3.jpg"
-                }
-            ]';
->>>>>>> ece065fe0062d89e7778f72eaa1bec15a3c6b989
 
             $OffertProduct = DB::select("select * from  view_descuento");
 
