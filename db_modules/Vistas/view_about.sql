@@ -7,5 +7,5 @@ CREATE OR REPLACE VIEW public.view_about AS
     tbl_about."contentFirstPost",
     tbl_about."imgSecondBanner",
     tbl_about."titleSecondPost",
-    tbl_about."contentSecondPost",
+    tbl_about."contentSecondPost"
    FROM tbl_about

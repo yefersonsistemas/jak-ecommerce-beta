@@ -10,40 +10,22 @@ class cart_controller extends Controller
 
     function addToCart(Request $r)
     {
-    //     return $_SERVER['REMOTE_ADDR'];
-    //     DB::select("select * from  addtocart(
-	// 		'".$r->codigoPersona."',
-	// 		'".$r->cedula."',
-    //         '".$r->primerNombre."',
-	// 		'".$r->segundoNombre."',
-	// 		'".$r->primerApellido."',
-	// 		'".$r->segundoApellido."',
-	// 		'".$r->asignado."',
-    //         '".$user['str_nombreUsuario']."')");
-        $r->session()->forget('cart');
-        if(session()->exists("cart")){
-            $auxCart = session("cart");
-            $r->session()->forget('cart');
-            foreach ($auxCart as $key =>  $value) {
-                if($r->productsCart['id'] == $value['id']){
-                    $value[$key]['quantity'] += $r->productsCart['quantity'];
-                    $r->session()->push('cart' , $value);
-                }
-                else{
-                    $r->session()->push('cart' , $r->productsCart);
-                }
-            }
-            return $auxCart;
-        }else{
-            $r->session()->push('cart' , $r->productsCart);
-        }
-        return session("cart");
+
+    //      DB::select("SELECT * FROM f_addtocart($_SERVER['REMOTE_ADDR'],$r->codeproducto,123)")  
     }
     function clearCart(Request $r){
         $r->session()->forget('cart');
     }
     function getProductCart()
     {
-        return session("cart");
+        $cartItems = '[
+                        { "id": 1, "title": "gatos", "price": 35.4 },
+                        { "id": 2, "title": "perros", "price": 24.5 },
+                        { "id": 3, "title": "sapos", "price": 15.5 }
+                    ]';
+        return response()->json([
+            'itemCart'   => json_decode($cartItems),
+            'totalPrice' => 500
+        ]);
     }
 }

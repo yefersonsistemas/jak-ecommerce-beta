@@ -60182,7 +60182,7 @@ var opts = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\proyectos\jakshop_beta\resources\js\panel js\main_panel.js */"./resources/js/panel js/main_panel.js");
+module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_betaa\resources\js\panel js\main_panel.js */"./resources/js/panel js/main_panel.js");
 
 
 /***/ })

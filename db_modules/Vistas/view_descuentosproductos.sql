@@ -1,7 +1,7 @@
-﻿CREATE OR REPLACE VIEW public.view_descuentosproductos AS
-SELECT tbl_productos.name,
-   tbl_productos."imgSrc"   as images,
-   tbl_productos.code,
-   "tbl_poductsType".name AS nametype
-FROM tbl_productos
-   LEFT JOIN "tbl_poductsType" ON tbl_productos."typeCode"::text = "tbl_poductsType".code::text
+﻿CREATE OR REPLACE VIEW public.view_carshop AS 
+ SELECT
+    "tbl_carShop".ip,
+    "tbl_carShop".cantidad,
+    tbl_productos.name as nombreproducto
+   FROM "tbl_carShop"
+     inner JOIN tbl_productos ON "tbl_carShop"."codeProduct" = tbl_productos.code

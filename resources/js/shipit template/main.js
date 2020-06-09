@@ -20,7 +20,7 @@ const store = new Vuex.Store({
         homeData: {},
         productSearchHome: {},
         aboutusDATA: [],
-        cartProduct: [],
+        cartData: [],
     },
     mutations: {
         setWebData(state, objectWebData) {
@@ -47,12 +47,8 @@ const store = new Vuex.Store({
         setAboutus(state, objectAboutus) {
             state.aboutusDATA = objectAboutus
         },
-        setCartProduct(state, objectProductCart, push = false) {
-            if (!push) {
-                state.cartProduct = objectProductCart
-            } else {
-                state.cartProduct.push(objectProductCart)
-            }
+        setCartProduct(state, objectProductCart) {
+            state.cartData = objectProductCart
         },
     },
     actions: {

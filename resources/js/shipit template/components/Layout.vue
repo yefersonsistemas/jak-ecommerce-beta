@@ -80,7 +80,6 @@
             width="45%"
             right
             v-model="drawer"
-            absolute
             fixed
             class="m-height"
             temporary
@@ -102,12 +101,18 @@
             <v-divider></v-divider>
 
             <v-list two-line dense>
-                <v-list-item v-for="item in items" :key="item.title" link>
+                <v-list-item
+                    v-for="item in cartData.itemCart"
+                    :key="item.title"
+                    link
+                >
                     <v-list-item-content>
                         <v-list-item-title>
                             {{ item.title }}
                         </v-list-item-title>
-                        <v-list-item-subtitle>35.5$</v-list-item-subtitle>
+                        <v-list-item-subtitle
+                            >{{ item.price }}$</v-list-item-subtitle
+                        >
                     </v-list-item-content>
                     <v-list-item-icon>
                         <v-icon>mdi-cart-remove</v-icon>
@@ -120,7 +125,7 @@
                     <v-list-item>
                         <v-list-item-content>
                             <v-list-item-title>
-                                TOTAL: 5000$
+                                TOTAL: {{ cartData.totalPrice }} $
                             </v-list-item-title>
                         </v-list-item-content>
                         <v-list-item-icon @click.stop="drawer = !drawer">
@@ -142,25 +147,22 @@ export default {
                 "mdi-facebook",
                 "mdi-twitter",
                 "mdi-linkedin",
-                "mdi-instagram",
+                "mdi-instagram"
             ],
-            drawer: null,
-            items: [
-                { title: "Home", icon: "mdi-facebook" },
-                { title: "About", icon: "mdi-facebook" },
-            ],
+            drawer: null
         };
     },
     computed: {
-        ...mapState(["WebData"]),
+        ...mapState(["WebData", "cartData"])
     },
     methods: {
         ...mapMutations(["setCartProduct"]),
-        ...mapActions(["getWebData"]),
+        ...mapActions(["getWebData", "getProductsCart"])
     },
     created() {
         this.getWebData();
-    },
+        this.getProductsCart();
+    }
 };
 </script>
 <style>

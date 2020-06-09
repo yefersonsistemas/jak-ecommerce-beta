@@ -2385,13 +2385,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2569,26 +2562,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       activeBtn: 1,
       icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-      drawer: null,
-      items: [{
-        title: "Home",
-        icon: "mdi-facebook"
-      }, {
-        title: "About",
-        icon: "mdi-facebook"
-      }]
+      drawer: null
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData", "cartData"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "getProductsCart"])),
   created: function created() {
     this.getWebData();
+    this.getProductsCart();
   }
 });
 
@@ -5846,10 +5838,10 @@ var render = function() {
       _c(
         "v-carousel",
         { attrs: { "hide-delimiters": "" } },
-        _vm._l(_vm.offertProduct, function(item) {
+        _vm._l(_vm.homeData.banners, function(item) {
           return _c("v-carousel-item", {
             key: item.id,
-            attrs: { src: item.images }
+            attrs: { src: item.imgSrc }
           })
         }),
         1
@@ -5868,7 +5860,7 @@ var render = function() {
                   {
                     staticClass: "white--text align-center",
                     attrs: {
-                      src: "images/slider2.jpg",
+                      src: _vm.homeData.topPicks.src,
                       gradient: "to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)",
                       height: "400px"
                     }
@@ -5886,7 +5878,7 @@ var render = function() {
                           "v-btn",
                           {
                             staticClass: "white--text",
-                            attrs: { href: "/shop", outlined: "" }
+                            attrs: { href: "/search/Top-Pick", outlined: "" }
                           },
                           [_vm._v("SHOP NOW")]
                         )
@@ -5914,7 +5906,7 @@ var render = function() {
                   {
                     staticClass: "white--text align-center",
                     attrs: {
-                      src: "images/slider3.jpg",
+                      src: _vm.homeData.newArrivals.src,
                       gradient: "to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)",
                       height: "400px"
                     }
@@ -5932,7 +5924,10 @@ var render = function() {
                           "v-btn",
                           {
                             staticClass: "white--text",
-                            attrs: { href: "/shop", outlined: "" }
+                            attrs: {
+                              href: "/search/New-Arrivals",
+                              outlined: ""
+                            }
                           },
                           [_vm._v("SHOP NOW")]
                         )
@@ -6597,13 +6592,7 @@ var render = function() {
         "v-navigation-drawer",
         {
           staticClass: "m-height",
-          attrs: {
-            width: "45%",
-            right: "",
-            absolute: "",
-            fixed: "",
-            temporary: ""
-          },
+          attrs: { width: "45%", right: "", fixed: "", temporary: "" },
           scopedSlots: _vm._u([
             {
               key: "append",
@@ -6623,7 +6612,9 @@ var render = function() {
                             [
                               _c("v-list-item-title", [
                                 _vm._v(
-                                  "\n                            TOTAL: 5000$\n                        "
+                                  "\n                            TOTAL: " +
+                                    _vm._s(_vm.cartData.totalPrice) +
+                                    " $\n                        "
                                 )
                               ])
                             ],
@@ -6712,7 +6703,7 @@ var render = function() {
           _c(
             "v-list",
             { attrs: { "two-line": "", dense: "" } },
-            _vm._l(_vm.items, function(item) {
+            _vm._l(_vm.cartData.itemCart, function(item) {
               return _c(
                 "v-list-item",
                 { key: item.title, attrs: { link: "" } },
@@ -6728,7 +6719,9 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("v-list-item-subtitle", [_vm._v("35.5$")])
+                      _c("v-list-item-subtitle", [
+                        _vm._v(_vm._s(item.price) + "$")
+                      ])
                     ],
                     1
                   ),
@@ -66836,7 +66829,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     homeData: {},
     productSearchHome: {},
     aboutusDATA: [],
-    cartProduct: []
+    cartData: []
   },
   mutations: {
     setWebData: function setWebData(state, objectWebData) {
@@ -66864,13 +66857,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
       state.aboutusDATA = objectAboutus;
     },
     setCartProduct: function setCartProduct(state, objectProductCart) {
-      var push = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-      if (!push) {
-        state.cartProduct = objectProductCart;
-      } else {
-        state.cartProduct.push(objectProductCart);
-      }
+      state.cartData = objectProductCart;
     }
   },
   actions: {
@@ -67147,7 +67134,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shipit_components_search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shipit/components/search */ "./resources/js/shipit template/components/search.vue");
 /* harmony import */ var _shipit_components_Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shipit/components/Product */ "./resources/js/shipit template/components/Product.vue");
 /* harmony import */ var _shipit_components_Blog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shipit/components/Blog */ "./resources/js/shipit template/components/Blog.vue");
-/* harmony import */ var _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @shipit/components/about-us */ "./resources/js/shipit template/components/about-us.vue");
+/* harmony import */ var _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shipit/components/about-us */ "./resources/js/shipit template/components/about-us.vue");
 /* harmony import */ var _shipit_components_Cart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @shipit/components/Cart */ "./resources/js/shipit template/components/Cart.vue");
 /* harmony import */ var _shipit_components_Layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @shipit/components/Layout */ "./resources/js/shipit template/components/Layout.vue");
 
@@ -67187,7 +67174,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       name: 'Blog'
     }, {
       path: '/about-us',
-      component: _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_9__["default"],
+      component: _shipit_components_about_us__WEBPACK_IMPORTED_MODULE_6__["default"],
       name: 'about-us'
     }, {
       path: '/cart',
@@ -67207,7 +67194,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\proyectos\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
+module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_betaa\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
 
 
 /***/ })
