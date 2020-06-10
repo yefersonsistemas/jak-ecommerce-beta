@@ -31,6 +31,10 @@ Route::post('/getOffertProduct', 'product_controller@OffertProduct');
 
 Route::post('/addProdutToCart', 'cart_controller@addToCart');
 
+Route::post('/removeProdutToCart', 'cart_controller@removeToCart');
+
+Route::post('/clearCart', 'cart_controller@clearCart');
+
 Route::get('/getaddProdutToCart', 'cart_controller@addToCart');
 
 Route::post('/getProductsCart', 'cart_controller@getProductCart');

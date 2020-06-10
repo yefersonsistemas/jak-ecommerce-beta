@@ -103,18 +103,20 @@
             <v-list two-line dense>
                 <v-list-item
                     v-for="item in cartData.itemCart"
-                    :key="item.title"
+                    :key="item.code"
                     link
                 >
+                    <v-list-item-icon> {{ item.quantity }} X </v-list-item-icon>
+
                     <v-list-item-content>
                         <v-list-item-title>
-                            {{ item.title }}
+                            {{ item.name }}
                         </v-list-item-title>
                         <v-list-item-subtitle
                             >{{ item.price }}$</v-list-item-subtitle
                         >
                     </v-list-item-content>
-                    <v-list-item-icon>
+                    <v-list-item-icon @click="removeToCart(item.code)">
                         <v-icon>mdi-cart-remove</v-icon>
                     </v-list-item-icon>
                 </v-list-item>
@@ -128,9 +130,9 @@
                                 TOTAL: {{ cartData.totalPrice }} $
                             </v-list-item-title>
                         </v-list-item-content>
-                        <v-list-item-icon @click.stop="drawer = !drawer">
+                        <a href="/cart" class="v-list-item__icon" icon>
                             <v-icon>mdi-cart-arrow-down</v-icon>
-                        </v-list-item-icon>
+                        </a>
                     </v-list-item>
                 </div>
             </template>
@@ -157,7 +159,7 @@ export default {
     },
     methods: {
         ...mapMutations(["setCartProduct"]),
-        ...mapActions(["getWebData", "getProductsCart"])
+        ...mapActions(["getWebData", "getProductsCart", "removeToCart"])
     },
     created() {
         this.getWebData();

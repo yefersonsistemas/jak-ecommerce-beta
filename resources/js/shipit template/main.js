@@ -12,6 +12,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
+        sendAddToCart: false,
         WebData: {},
         productData: {},
         shopItem: {},
@@ -121,10 +122,26 @@ const store = new Vuex.Store({
         },
         addToCart({
             commit
-        }, productsCart) {
+        }, [productsCode, quantity]) {
+            this.state.sendAddToCart = true
             Axios.post("/addProdutToCart", {
-                productsCart: productsCart
+                productsCode: productsCode,
+                quantity: quantity
             }).then(response => {
+                this.state.sendAddToCart = false
+                store.dispatch('getProductsCart')
+            })
+
+        },
+
+        removeToCart({
+            commit
+        }, productsCode) {
+            this.state.sendAddToCart = true
+            Axios.post("/removeProdutToCart", {
+                productsCode: productsCode
+            }).then(response => {
+                this.state.sendAddToCart = false
                 store.dispatch('getProductsCart')
             })
 

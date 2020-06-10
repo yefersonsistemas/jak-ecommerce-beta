@@ -1941,6 +1941,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2048,74 +2055,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      rating: 4.5,
-      breadcrums: [{
-        text: 'Home',
-        disabled: false,
-        href: 'breadcrumbs_home'
-      }, {
-        text: 'Clothing',
-        disabled: false,
-        href: 'breadcrumbs_clothing'
-      }, {
-        text: 'T-Shirts',
-        disabled: true,
-        href: 'breadcrumbs_shirts'
-      }]
-    };
-  }
+    return {};
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["cartData"])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["removeToCart"]))
 });
 
 /***/ }),
@@ -2567,6 +2513,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2577,7 +2525,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["WebData", "cartData"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "getProductsCart"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(["setCartProduct"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getWebData", "getProductsCart", "removeToCart"])),
   created: function created() {
     this.getWebData();
     this.getProductsCart();
@@ -2914,10 +2862,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['codeProduct'],
   data: function data() {
-    return {};
+    return {
+      quantity: 1
+    };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['productData'])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['setProductData'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProductData'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['productData', 'sendAddToCart'])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])(['setProductData'])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getProductData', 'addToCart'])),
   created: function created() {
     this.getProductData(this.codeProduct);
   }
@@ -5382,7 +5332,7 @@ var render = function() {
           _c(
             "p",
             { staticClass: "display-3 font-weight-light\ttext-center pa-4" },
-            [_vm._v("SHOPPING CART")]
+            [_vm._v("\n            SHOPPING CART\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -5420,143 +5370,79 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _c("tbody", [
-                              _c("tr", [
-                                _c(
-                                  "td",
-                                  [
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.cartData.itemCart, function(item) {
+                                return _c("tr", { key: item.code }, [
+                                  _c(
+                                    "td",
+                                    [
+                                      _c(
+                                        "v-list-item",
+                                        [
+                                          _c(
+                                            "v-list-item-content",
+                                            [
+                                              _c("v-list-item-title", [
+                                                _vm._v(_vm._s(item.name))
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v("$" + _vm._s(item.price))]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    [
+                                      _c("v-text-field", {
+                                        staticClass: "pt-10",
+                                        staticStyle: { width: "80px" },
+                                        attrs: {
+                                          label: "Outlined",
+                                          "single-line": "",
+                                          outlined: "",
+                                          disabled: ""
+                                        },
+                                        model: {
+                                          value: item.quantity,
+                                          callback: function($$v) {
+                                            _vm.$set(item, "quantity", $$v)
+                                          },
+                                          expression: "item.quantity"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v("$" + _vm._s(item.fullprice))
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", [
                                     _c(
-                                      "v-list-item",
+                                      "a",
                                       {
-                                        key: "1",
-                                        on: { click: function($event) {} }
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.removeToCart(item.code)
+                                          }
+                                        }
                                       },
-                                      [
-                                        _c(
-                                          "v-list-item-avatar",
-                                          [
-                                            _c("v-img", {
-                                              attrs: {
-                                                src: __webpack_require__(/*! ../assets/img/shop/1.jpg */ "./resources/js/shipit template/assets/img/shop/1.jpg")
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-list-item-content",
-                                          [
-                                            _c("v-list-item-title", [
-                                              _vm._v("Item 1")
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("v-list-item-subtitle", [
-                                              _vm._v("Lorem Ipsum")
-                                            ])
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
+                                      [_vm._v("X")]
                                     )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("td", [_vm._v("$40.00")]),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  [
-                                    _c("v-text-field", {
-                                      staticClass: "pt-10",
-                                      staticStyle: { width: "80px" },
-                                      attrs: {
-                                        label: "Outlined",
-                                        "single-line": "",
-                                        outlined: "",
-                                        value: "2",
-                                        type: "number"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("td", [_vm._v("$80.00")]),
-                                _vm._v(" "),
-                                _c("td", [_c("a", [_vm._v("X")])])
-                              ]),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c(
-                                  "td",
-                                  [
-                                    _c(
-                                      "v-list-item",
-                                      {
-                                        key: "1",
-                                        on: { click: function($event) {} }
-                                      },
-                                      [
-                                        _c(
-                                          "v-list-item-avatar",
-                                          [
-                                            _c("v-img", {
-                                              attrs: {
-                                                src: __webpack_require__(/*! ../assets/img/shop/2.jpg */ "./resources/js/shipit template/assets/img/shop/2.jpg")
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-list-item-content",
-                                          [
-                                            _c("v-list-item-title", [
-                                              _vm._v("Item 2")
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("v-list-item-subtitle", [
-                                              _vm._v("Lorem Ipsum")
-                                            ])
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("td", [_vm._v("$40.00")]),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  [
-                                    _c("v-text-field", {
-                                      staticClass: "pt-10",
-                                      staticStyle: { width: "80px" },
-                                      attrs: {
-                                        label: "Outlined",
-                                        "single-line": "",
-                                        outlined: "",
-                                        value: "2",
-                                        type: "number"
-                                      }
-                                    })
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("td", [_vm._v("$80.00")]),
-                                _vm._v(" "),
-                                _c("td", [_c("a", [_vm._v("X")])])
-                              ])
-                            ])
+                                  ])
+                                ])
+                              }),
+                              0
+                            )
                           ]
                         },
                         proxy: true
@@ -5580,7 +5466,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", { staticClass: "overline" }, [
                     _vm._v(
-                      "Shipping and additional costs are calculated based on values you have entered.\n        "
+                      "\n                    Shipping and additional costs are calculated based on\n                    values you have entered.\n                "
                     )
                   ]),
                   _vm._v(" "),
@@ -5600,7 +5486,11 @@ var render = function() {
                                     staticClass: "text-right",
                                     staticStyle: { width: "50px" }
                                   },
-                                  [_vm._v("$160.00")]
+                                  [
+                                    _vm._v(
+                                      "\n                                    $160.00\n                                "
+                                    )
+                                  ]
                                 )
                               ]),
                               _vm._v(" "),
@@ -5613,7 +5503,11 @@ var render = function() {
                                     staticClass: "text-right",
                                     staticStyle: { width: "50px" }
                                   },
-                                  [_vm._v("$10.00")]
+                                  [
+                                    _vm._v(
+                                      "\n                                    $10.00\n                                "
+                                    )
+                                  ]
                                 )
                               ]),
                               _vm._v(" "),
@@ -5626,7 +5520,11 @@ var render = function() {
                                     staticClass: "text-right",
                                     staticStyle: { width: "50px" }
                                   },
-                                  [_vm._v("$5.00")]
+                                  [
+                                    _vm._v(
+                                      "\n                                    $5.00\n                                "
+                                    )
+                                  ]
                                 )
                               ]),
                               _vm._v(" "),
@@ -5639,7 +5537,13 @@ var render = function() {
                                     staticClass: "text-right",
                                     staticStyle: { width: "50px" }
                                   },
-                                  [_c("b", [_vm._v("$175.00")])]
+                                  [
+                                    _c("b", [
+                                      _vm._v(
+                                        "$" + _vm._s(_vm.cartData.totalPrice)
+                                      )
+                                    ])
+                                  ]
                                 )
                               ])
                             ])
@@ -5661,138 +5565,6 @@ var render = function() {
                           attrs: { outlined: "" }
                         },
                         [_vm._v("PROCEED TO PAY")]
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-card",
-        { staticClass: "accent" },
-        [
-          _c(
-            "v-container",
-            [
-              _c(
-                "v-row",
-                { attrs: { "no-gutters": "" } },
-                [
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass:
-                                "col-12 col-sm-3 pr-4 hidden-sm-only",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-truck")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("FREE SHIPPING & RETURN")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("Free Shipping over $300")
-                            ])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "col-12 col-sm-3 pr-4",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-cash-usd")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("MONEY BACK GUARANTEE")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("30 Days Money Back Guarantee")
-                            ])
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-col",
-                    { staticClass: "col-12 col-md-4 col-sm-12" },
-                    [
-                      _c(
-                        "v-row",
-                        [
-                          _c(
-                            "v-col",
-                            {
-                              staticClass: "col-12 col-sm-3 pr-4",
-                              attrs: { align: "right" }
-                            },
-                            [
-                              _c("v-icon", { staticClass: "display-2" }, [
-                                _vm._v("mdi-headset")
-                              ])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("v-col", { staticClass: "col-12 col-sm-9 pr-4" }, [
-                            _c("h3", { staticClass: "font-weight-light" }, [
-                              _vm._v("020-800-456-747")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "font-weight-thin" }, [
-                              _vm._v("24/7 Available Support")
-                            ])
-                          ])
-                        ],
-                        1
                       )
                     ],
                     1
@@ -6622,14 +6394,10 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c(
-                            "v-list-item-icon",
+                            "a",
                             {
-                              on: {
-                                click: function($event) {
-                                  $event.stopPropagation()
-                                  _vm.drawer = !_vm.drawer
-                                }
-                              }
+                              staticClass: "v-list-item__icon",
+                              attrs: { href: "/cart", icon: "" }
                             },
                             [_c("v-icon", [_vm._v("mdi-cart-arrow-down")])],
                             1
@@ -6706,15 +6474,19 @@ var render = function() {
             _vm._l(_vm.cartData.itemCart, function(item) {
               return _c(
                 "v-list-item",
-                { key: item.title, attrs: { link: "" } },
+                { key: item.code, attrs: { link: "" } },
                 [
+                  _c("v-list-item-icon", [
+                    _vm._v(" " + _vm._s(item.quantity) + " X ")
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "v-list-item-content",
                     [
                       _c("v-list-item-title", [
                         _vm._v(
                           "\n                        " +
-                            _vm._s(item.title) +
+                            _vm._s(item.name) +
                             "\n                    "
                         )
                       ]),
@@ -6728,6 +6500,13 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-list-item-icon",
+                    {
+                      on: {
+                        click: function($event) {
+                          return _vm.removeToCart(item.code)
+                        }
+                      }
+                    },
                     [_c("v-icon", [_vm._v("mdi-cart-remove")])],
                     1
                   )
@@ -6840,14 +6619,31 @@ var render = function() {
                 _vm._v(" "),
                 _c("v-text-field", {
                   staticStyle: { width: "100px" },
-                  attrs: { outlined: "", value: 1, dense: "" }
+                  attrs: { outlined: "", dense: "" },
+                  model: {
+                    value: _vm.quantity,
+                    callback: function($$v) {
+                      _vm.quantity = $$v
+                    },
+                    expression: "quantity"
+                  }
                 }),
                 _vm._v(" "),
                 _c(
                   "v-btn",
                   {
                     staticClass: "primary white--text",
-                    attrs: { outlined: "", tile: "", dense: "" }
+                    attrs: {
+                      disabled: _vm.sendAddToCart,
+                      outlined: "",
+                      tile: "",
+                      dense: ""
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.addToCart([_vm.codeProduct, _vm.quantity])
+                      }
+                    }
                   },
                   [_c("v-icon", [_vm._v("mdi-cart")]), _vm._v(" ADD TO CART")],
                   1
@@ -66218,28 +66014,6 @@ module.exports = "/images/slider4.jpg?0e80ba7f635e3c6f87a4ccee82dd746b";
 
 /***/ }),
 
-/***/ "./resources/js/shipit template/assets/img/shop/1.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/1.jpg ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/1.jpg?60540e66664a874eecfa0fc74ba19c03";
-
-/***/ }),
-
-/***/ "./resources/js/shipit template/assets/img/shop/2.jpg":
-/*!************************************************************!*\
-  !*** ./resources/js/shipit template/assets/img/shop/2.jpg ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/2.jpg?3823ba82aa134435a969571798e9d664";
-
-/***/ }),
-
 /***/ "./resources/js/shipit template/assets/img/shop/3.jpg":
 /*!************************************************************!*\
   !*** ./resources/js/shipit template/assets/img/shop/3.jpg ***!
@@ -66562,14 +66336,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************!*\
   !*** ./resources/js/shipit template/components/Product.vue ***!
   \*************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_vue_vue_type_template_id_e2cd9f60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue?vue&type=template&id=e2cd9f60& */ "./resources/js/shipit template/components/Product.vue?vue&type=template&id=e2cd9f60&");
 /* harmony import */ var _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product.vue?vue&type=script&lang=js& */ "./resources/js/shipit template/components/Product.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -66599,7 +66374,7 @@ component.options.__file = "resources/js/shipit template/components/Product.vue"
 /*!**************************************************************************************!*\
   !*** ./resources/js/shipit template/components/Product.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66804,6 +66579,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
 
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -66821,6 +66608,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   state: {
+    sendAddToCart: false,
     WebData: {},
     productData: {},
     shopItem: {},
@@ -67052,11 +66840,33 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
         }, _callee9);
       }))();
     },
-    addToCart: function addToCart(_ref10, productsCart) {
+    addToCart: function addToCart(_ref10, _ref11) {
+      var _this = this;
+
       var commit = _ref10.commit;
+
+      var _ref12 = _slicedToArray(_ref11, 2),
+          productsCode = _ref12[0],
+          quantity = _ref12[1];
+
+      this.state.sendAddToCart = true;
       axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/addProdutToCart", {
-        productsCart: productsCart
+        productsCode: productsCode,
+        quantity: quantity
       }).then(function (response) {
+        _this.state.sendAddToCart = false;
+        store.dispatch('getProductsCart');
+      });
+    },
+    removeToCart: function removeToCart(_ref13, productsCode) {
+      var _this2 = this;
+
+      var commit = _ref13.commit;
+      this.state.sendAddToCart = true;
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/removeProdutToCart", {
+        productsCode: productsCode
+      }).then(function (response) {
+        _this2.state.sendAddToCart = false;
         store.dispatch('getProductsCart');
       });
     }

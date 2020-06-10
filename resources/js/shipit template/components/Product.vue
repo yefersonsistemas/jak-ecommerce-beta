@@ -40,10 +40,10 @@
             <v-text-field
                 outlined
                 style="width:100px"
-                :value="1"
+                v-model="quantity"
                 dense
             ></v-text-field>
-            <v-btn class="primary white--text" outlined tile dense><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
+            <v-btn :disabled="sendAddToCart" @click="addToCart([codeProduct,quantity])" class="primary white--text" outlined tile dense><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
             <!-- <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn> -->
 
           </div>
@@ -311,14 +311,17 @@ import { mapState, mapMutations, mapActions } from 'vuex'
 
     export default {
       props: ['codeProduct'],
-        data: () => ({
-        }),
+        data() {
+          return {
+            quantity : 1
+          }
+        },
         computed:{
-          ...mapState(['productData'])
+          ...mapState(['productData', 'sendAddToCart'])
         },
         methods:{
           ...mapMutations(['setProductData']),
-          ...mapActions(['getProductData'])
+          ...mapActions(['getProductData','addToCart'])
         },
         created() {
           this.getProductData(this.codeProduct)
