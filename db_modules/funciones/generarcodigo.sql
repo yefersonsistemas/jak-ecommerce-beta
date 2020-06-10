@@ -1,4 +1,5 @@
-﻿CREATE OR REPLACE FUNCTION public.generarcodigo(
+﻿
+CREATE OR REPLACE FUNCTION public.generarcodigo(
     IN codigoswiche character varying,
     OUT codigogenerado character varying)
   RETURNS character varying AS
@@ -140,6 +141,30 @@ $BODY$
 			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
 
 			codigoGenerado := 'IMG-'|| codigoAuxiliar ||'';
+			return;
+		end if;
+		if codigoSwiche = 'TM' then
+			SELECT COUNT(1) INTO numeroCodigo FROM "tbl_typeModel" ;
+		
+			numeroCodigo = numeroCodigo + 1;
+		
+			stringCodigo = numeroCodigo::varchar(255);
+		
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
+
+			codigoGenerado := 'TM-'|| codigoAuxiliar ||'';
+			return;
+		end if;
+		if codigoSwiche = 'MC' then
+			SELECT COUNT(1) INTO numeroCodigo FROM tbl_model ;
+		
+			numeroCodigo = numeroCodigo + 1;
+		
+			stringCodigo = numeroCodigo::varchar(255);
+		
+			codigoAuxiliar :=  substring('0000' || numeroCodigo ||'',length(stringCodigo),5);
+
+			codigoGenerado := 'MC-'|| codigoAuxiliar ||'';
 			return;
 		end if;
         

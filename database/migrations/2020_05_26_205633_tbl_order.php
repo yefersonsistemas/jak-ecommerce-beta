@@ -21,7 +21,6 @@ class TblOrder extends Migration
             $table->boolean('indicted')->nullable();
             $table->date('register');
             $table->boolean('cancelated');
-            $table->float('tax');
             $table->date('emission');
 
             $table->foreign('userCode')->references('code')->on('tbl_users');

@@ -5,13 +5,13 @@
 CREATE OR REPLACE VIEW public.view_carshop
  AS
  SELECT "tbl_carShop".ip,
-    tbl_productos.code,
-    "tbl_carShop".cantidad AS quantity,
-    tbl_productos.name,
-    tbl_productos."actualPrice" AS price,
-    tbl_productos."actualPrice" * "tbl_carShop".cantidad::double precision AS fullprice
+    tbl_product.code,
+    "tbl_carShop".quantity,
+    tbl_product.name,
+    tbl_product."actualPrice" AS price,
+    tbl_product."actualPrice" * "tbl_carShop".quantity::double precision AS fullprice
    FROM "tbl_carShop"
-     JOIN tbl_productos ON "tbl_carShop"."codeProduct"::text = tbl_productos.code::text;
+     JOIN tbl_product ON "tbl_carShop"."codeProduct"::text = tbl_product.code::text;
 
 ALTER TABLE public.view_carshop
     OWNER TO postgres;

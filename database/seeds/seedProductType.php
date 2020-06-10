@@ -18,7 +18,7 @@ class seedProductType extends Seeder
         ]);
         DB                      :: table('tbl_poductsType')->insert([
             'code'              => 'PRTY-002',
-            'classCode'         => 'CLASS-001',
+            'classCode'         => 'CLASS-002',
             'name'              => 'Zapatos de Vestir',
         ]);
         DB                      :: table('tbl_poductsType')->insert([

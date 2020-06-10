@@ -19,7 +19,7 @@ class TblImage extends Migration
             $table->string('imgSrc');
             $table->string('productCode');
 
-            $table->foreign('productCode')->references('code')->on('tbl_productos');
+            $table->foreign('productCode')->references('code')->on('tbl_product');
   
     });
     }

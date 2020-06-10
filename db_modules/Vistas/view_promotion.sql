@@ -1,7 +1,7 @@
 CREATE OR REPLACE VIEW public.view_promotion AS 
  SELECT tbl_promotion.discount,
     tbl_promotion.code as descuento,
-    tbl_productos.code as producto,
-    tbl_productos."imgSrc" as images
+    tbl_product.code as producto,
+    tbl_product."imgSrc" as images
    FROM tbl_promotion 
-   LEFT JOIN tbl_productos ON tbl_promotion."codeProducto"::text = tbl_productos.code::text
+   LEFT JOIN tbl_product ON tbl_promotion."codeProducto"::text = tbl_product.code::text

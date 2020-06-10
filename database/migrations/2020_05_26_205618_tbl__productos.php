@@ -13,21 +13,23 @@ class TblProductos extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_productos', function (Blueprint $table) {
+        Schema::create('tbl_product', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('code')->unique();
                 $table->string('name');
                 $table->string('imgSrc');
-                $table->string('descripcion');
-                $table->string('shortDescripcion');
+                $table->string('description');
+                $table->string('shortDescription');
                 $table->string('typeCode');
+                $table->string('typeModel');
                 $table->string('materials');
                 $table->float('actualPrice');
-                $table->integer('existenc');
+                $table->integer('existence')->nullable();
                 $table->timestamp('insertDate')->nullable();
                 $table->timestamp('upDate')->nullable();
 
                 $table->foreign('typeCode')->references('code')->on('tbl_poductsType');
+                $table->foreign('typeModel')->references('code')->on('tbl_typeModel');
 
         });
     }
@@ -39,6 +41,6 @@ class TblProductos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_productos');
+        Schema::dropIfExists('tbl_product');
     }
 }

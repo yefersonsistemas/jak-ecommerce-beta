@@ -2,7 +2,7 @@
 
 -- DROP FUNCTION public.agregartiposproductos(character varying, character varying);
 
-CREATE OR REPLACE FUNCTION public.agregartiposproductos(
+CREATE OR REPLACE FUNCTION public.addtypeproduct(
     IN codigoclase character varying,
     IN nombre character varying,
     OUT codigo character varying)

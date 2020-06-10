@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.agregardescuentos(
+CREATE OR REPLACE FUNCTION public.adddescuentos(
     IN codeproduct character varying,
     IN discount character varying,
     OUT codigo character varying)

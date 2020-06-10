@@ -2,15 +2,17 @@
 -- DROP VIEW public.view_productos;
 
 CREATE OR REPLACE VIEW public.view_productos AS
-SELECT tbl_productos.name,
-  tbl_productos.code,
-  tbl_productos."imgSrc" as images,
-  tbl_productos.descripcion as description,
-  tbl_productos."shortDescripcion" as shortDescription,
-  tbl_productos.materials,
-  tbl_productos."actualPrice" as price
-FROM tbl_productos
-ORDER BY tbl_productos.id DESC;
+SELECT tbl_product.name,
+  tbl_product.code,
+  tbl_product."imgSrc" as images,
+  tbl_product.description,
+  tbl_product."shortDescription",
+  tbl_product.materials,
+  tbl_product."actualPrice" as price,
+  tbl_product."typeModel" as codeModel
+FROM tbl_product
+ORDER BY tbl_product.id DESC;
+
 
 ALTER TABLE public.view_productos
   OWNER TO postgres;

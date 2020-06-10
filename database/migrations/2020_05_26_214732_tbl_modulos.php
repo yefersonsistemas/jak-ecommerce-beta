@@ -13,7 +13,7 @@ class TblModulos extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_modulos', function (Blueprint $table) {
+        Schema::create('tbl_modules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code')->unique();
             $table->string('fatherCode');
@@ -32,6 +32,6 @@ class TblModulos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_modulos');
+        Schema::dropIfExists('tbl_modules');
     }
 }

@@ -18,10 +18,9 @@ class TblProductsForOrder extends Migration
             $table->string('orderCode')->unique();
             $table->string('productCode');
             $table->string('quantity');
-            $table->float('tax');
             $table->float('cost');
 
-            $table->foreign('productCode')->references('code')->on('tbl_productos');
+            $table->foreign('productCode')->references('code')->on('tbl_product');
             $table->foreign('orderCode')->references('code')->on('tbl_order');
         });
     }

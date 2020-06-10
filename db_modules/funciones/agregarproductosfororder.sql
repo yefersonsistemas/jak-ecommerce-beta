@@ -2,7 +2,7 @@
 
 -- DROP FUNCTION public.agregarproductosfororder(character varying, character varying, character varying, character varying, character varying);
 
-CREATE OR REPLACE FUNCTION public.agregarproductosfororder(
+CREATE OR REPLACE FUNCTION public.addproductfororder(
     IN ordencode character varying,
     IN productcode character varying,
     IN cantidad character varying,

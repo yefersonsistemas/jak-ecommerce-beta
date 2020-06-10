@@ -20,7 +20,7 @@ class TblReview extends Migration
             $table->string('userCode')->nullable();
             $table->string('comment');
             $table->integer('puntuation');
-            $table->foreign('productCode')->references('code')->on('tbl_productos');
+            $table->foreign('productCode')->references('code')->on('tbl_product');
             //$table->foreign('userCode')->references('code')->on('tbl_users');
 
         });

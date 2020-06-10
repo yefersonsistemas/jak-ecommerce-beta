@@ -19,7 +19,7 @@ class TblPromotion extends Migration
             $table->string('codeProducto');
             $table->integer('discount');
 
-            $table->foreign('codeProducto')->references('code')->on('tbl_productos');
+            $table->foreign('codeProducto')->references('code')->on('tbl_product');
         });
     }
 

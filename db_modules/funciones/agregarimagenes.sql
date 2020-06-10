@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.agregarimagenes(
+CREATE OR REPLACE FUNCTION public.addimages(
     IN imgsrc character varying,
     IN codigoproducto character varying,
     OUT codigo character varying)

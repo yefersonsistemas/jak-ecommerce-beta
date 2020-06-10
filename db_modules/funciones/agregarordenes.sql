@@ -2,7 +2,7 @@
 
 -- DROP FUNCTION public.agregarordenes(character varying, double precision, boolean, integer, boolean, double precision, date);
 
-CREATE OR REPLACE FUNCTION public.agregarordenes(
+CREATE OR REPLACE FUNCTION public.addordenes(
     IN usuario character varying,
     IN total double precision,
     IN indited boolean,

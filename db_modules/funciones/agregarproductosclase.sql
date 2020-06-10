@@ -1,8 +1,5 @@
-﻿-- Function: public.agregarproductosclase(character varying)
-
--- DROP FUNCTION public.agregarproductosclase(character varying);
-
-CREATE OR REPLACE FUNCTION public.agregarproductosclase(
+﻿
+CREATE OR REPLACE FUNCTION public.addproductclass(
     IN nombre character varying,
     OUT codigo character varying)
   RETURNS character varying AS
@@ -15,7 +12,7 @@ BEGIN
 
 	select  codigoGenerado into AuxCode from generarcodigo('PRDCLASS');
 	WITH auxIn AS (
-	insert into "tbl_productosClass" (code, name) 
+	insert into "tbl_productClass" (code, name) 
 	values(AuxCode, nombre)
 	RETURNING code
 	)
@@ -34,5 +31,3 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION public.agregarproductosclase(character varying)
-  OWNER TO postgres;

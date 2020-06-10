@@ -15,8 +15,11 @@ class DatabaseSeeder extends Seeder
            
             seedProductClass::class,
             seedProductType::class,
+            seedModelClass::class,
+            seedModelType::class,
             seedProduct::class,
             seedProductReview::class,
+
         ]);
     }
 }

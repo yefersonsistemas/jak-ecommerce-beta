@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblProductsType extends Migration
+class TblTypeModel extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class TblProductsType extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_poductsType', function (Blueprint $table) {
+        Schema::create('tbl_typeModel', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code')->unique();
-            $table->string('classCode');
+            $table->string('codeModel');
             $table->string('name');
+            $table->boolean('delete')->default(false);
 
-            $table->foreign('classCode')->references('code')->on('tbl_productClass');
-        });
+            $table->foreign('codeModel')->references('code')->on('tbl_model');
+    });
     }
 
     /**
@@ -30,6 +31,6 @@ class TblProductsType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_poductsType');
+        Schema::dropIfExists('tbl_typeModel');
     }
 }

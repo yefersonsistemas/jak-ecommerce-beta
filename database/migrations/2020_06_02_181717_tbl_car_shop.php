@@ -15,11 +15,11 @@ class TblCarShop extends Migration
     {
         Schema::create('tbl_carShop', function (Blueprint $table) {
             $table->string('ip');
-            $table->integer('cantidad');
+            $table->integer('quantity');
             $table->string('codeProduct');
             $table->timestamp('dateCreation');
 
-            $table->foreign('codeProduct')->references('code')->on('tbl_productos');
+            $table->foreign('codeProduct')->references('code')->on('tbl_product');
 
     });
     }
