@@ -24,7 +24,7 @@ BEGIN
 		else
 			UPDATE "tbl_carShop"
 				SET cantidad = cantidad + quantity
-				WHERE ip = ip and "codeProduct" = product;
+				WHERE ip = ip_in and "codeProduct" = product;
 				message := true;
 		end if;
 

@@ -69,24 +69,6 @@
                         <template v-slot:default>
                             <tbody>
                                 <tr>
-                                    <td>Order Subtotal</td>
-                                    <td class="text-right" style="width: 50px;">
-                                        $160.00
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Shipping Charges</td>
-                                    <td class="text-right" style="width: 50px;">
-                                        $10.00
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tax</td>
-                                    <td class="text-right" style="width: 50px;">
-                                        $5.00
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>Total</td>
                                     <td class="text-right" style="width: 50px;">
                                         <b>${{ cartData.totalPrice }}</b>

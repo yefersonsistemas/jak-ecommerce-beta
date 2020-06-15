@@ -2037,24 +2037,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -5477,57 +5459,6 @@ var render = function() {
                         fn: function() {
                           return [
                             _c("tbody", [
-                              _c("tr", [
-                                _c("td", [_vm._v("Order Subtotal")]),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticClass: "text-right",
-                                    staticStyle: { width: "50px" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                    $160.00\n                                "
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c("td", [_vm._v("Shipping Charges")]),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticClass: "text-right",
-                                    staticStyle: { width: "50px" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                    $10.00\n                                "
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c("td", [_vm._v("Tax")]),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticClass: "text-right",
-                                    staticStyle: { width: "50px" }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                    $5.00\n                                "
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
                               _c("tr", [
                                 _c("td", [_vm._v("Total")]),
                                 _vm._v(" "),
@@ -66336,15 +66267,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************************!*\
   !*** ./resources/js/shipit template/components/Product.vue ***!
   \*************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Product_vue_vue_type_template_id_e2cd9f60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue?vue&type=template&id=e2cd9f60& */ "./resources/js/shipit template/components/Product.vue?vue&type=template&id=e2cd9f60&");
 /* harmony import */ var _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product.vue?vue&type=script&lang=js& */ "./resources/js/shipit template/components/Product.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Product_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -66374,7 +66304,7 @@ component.options.__file = "resources/js/shipit template/components/Product.vue"
 /*!**************************************************************************************!*\
   !*** ./resources/js/shipit template/components/Product.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67004,7 +66934,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\desarrollos personales\jakshop_betaa\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
+module.exports = __webpack_require__(/*! D:\proyectos\jakshop_beta\resources\js\shipit template\main.js */"./resources/js/shipit template/main.js");
 
 
 /***/ })

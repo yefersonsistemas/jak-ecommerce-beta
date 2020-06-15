@@ -54,24 +54,17 @@ class webconf_controller extends Controller
 
     function aboutus ()
     {
-        $title             = 'jak solutions';
-        $slogan            = "producir, hacer, crear, inventar,";
-        $imgFirstBanner    = "https://picsum.photos/1920/1080?random";
-        $titleFirstPost    = "mision";
-        $contentFirstPost  = "somo una gran empresa";
-        $imgSecondBanner   = "https://picsum.photos/1920/1080?random";
-        $titleSecondPost   = "vision";
-        $contentSecondPost = "llegaremos lejos";
+        $aboutus = DB::select("select * from  view_about")[0];
 
         return response()->json([
-            'title'             => $title,
-            'slogan'            => $slogan,
-            'imgFirstBanner'    => $imgFirstBanner,
-            'titleFirstPost'    => $titleFirstPost,
-            'contentFirstPost'  => $contentFirstPost,
-            'imgSecondBanner'   => $imgSecondBanner,
-            'titleSecondPost'   => $titleSecondPost,
-            'contentSecondPost' => $contentSecondPost
+            'title'             => $aboutus->title,
+            'slogan'            => $aboutus->slogan,
+            'imgFirstBanner'    => $aboutus->imgFirstBanner,
+            'titleFirstPost'    => $aboutus->titleFirstPost,
+            'contentFirstPost'  => $aboutus->contentFirstPost,
+            'imgSecondBanner'   => $aboutus->imgSecondBanner,
+            'titleSecondPost'   => $aboutus->titleSecondPost,
+            'contentSecondPost' => $aboutus->contentSecondPost
         ]);
     }
 }
