@@ -35,6 +35,8 @@ Route::post('/removeProdutToCart', 'cart_controller@removeToCart');
 
 Route::post('/clearCart', 'cart_controller@clearCart');
 
+Route::get('/saveAndSendOrder', 'orderController@saveAndSendOrder');
+
 Route::get('/getaddProdutToCart', 'cart_controller@addToCart');
 
 Route::post('/getProductsCart', 'cart_controller@getProductCart');
